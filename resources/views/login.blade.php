@@ -1,3 +1,7 @@
+@extends('layouts.wlrLayout')
+@section('title')login @endsection
+@section('loginContent')
+
 @if (session('showAlert'))
     <script>
         alert("{{ session('success') }}");
@@ -10,13 +14,6 @@
 @endif
 
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
     <div class="container">
         <h1 class="text-center">Login</h1>
         <div class="col-md-6 offset-md-3">
@@ -46,5 +43,5 @@
             </form>
         </div>
     </div>
-</body>
-</html>
+
+@endsection

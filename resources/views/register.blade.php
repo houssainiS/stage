@@ -5,13 +5,9 @@
 @endif
 
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Register</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
+@extends('layouts.wlrLayout')
+@section('title')register @endsection
+@section('registerContent')
     <div class="container">
         <h1 class="text-center">Register</h1>
         <div class="col-md-6 offset-md-3">
@@ -76,5 +72,4 @@
             </form>
         </div>
     </div>
-</body>
-</html>
+@endsection

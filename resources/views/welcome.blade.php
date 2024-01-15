@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Welcome</title>
+@extends('layouts.wlrLayout')
+@section('title')welcome @endsection
+@section('welcomeContent')
 <style>
-body {
+.w {
   text-align: center;
   padding: 50px;
 }
@@ -27,10 +26,12 @@ body {
 </style>
 </head>
 <body>
-<h1>Welcome!</h1>
+  <div class="w">
+    <h1>Welcome!</h1>
 <div class="button-container">
   <a class="button" href="{{route('login')}}">Login</a>
   <a class="button" href="{{route('register')}}">Register</a>
 </div>
-</body>
-</html>
+  </div>
+
+@endsection
