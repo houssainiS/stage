@@ -30,7 +30,6 @@
                 <div class="form-group">
                     <label for="rank">Rank:</label>
                     <select class="form-control" id="rank" name="rank">
-                        <option value="">Select Rank</option>
                         <option value="1">Rank 1</option>
                         <option value="2">Rank 2</option>
                         <option value="3">Rank 3</option>

@@ -21,7 +21,7 @@ return new class extends Migration
         $table->integer('age');
         $table->integer('cin');
         $table->string('phone_number');
-        $table->integer('rank');
+        $table->string('rank');
         $table->string('rank_code');
         $table->string('department');
         $table->integer('requests_number');

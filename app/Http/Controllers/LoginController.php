@@ -31,9 +31,28 @@ class LoginController extends Controller
 
 
 public function registerStore()
-{
-    // Create a new worker
-    $worker = new Worker();
+{ 
+    $rank = request()->rank;
+    $rankcode=request()->rank_code;
+    if($rankcode ==666 && $rank=="6"){
+        $ranktest=true;
+    }elseif($rankcode =="555" && $rank=="5"){
+        $ranktest=true;
+    }elseif($rankcode =="444" && $rank=="4"){
+        $ranktest=true;
+    }elseif($rankcode =="333" && $rank=="3"){
+        $ranktest=true;
+    }elseif($rankcode =="222" && $rank=="2"){
+        $ranktest=true;
+    }elseif($rankcode =="111" && $rank=="1"){
+        $ranktest=true;
+    }else{
+        $ranktest=false;
+    }
+  
+    //dd($ranktest);
+    if($ranktest){
+        $worker = new Worker();
     
     $worker->username = request()->username;
     $worker->name = request()->name;
@@ -43,7 +62,7 @@ public function registerStore()
     $worker->age = request()->age;
     $worker->cin = request()->id;
     $worker->phone_number = request()->phone_number;
-    $worker->rank = request()->rank;
+    $worker->rank = $rank;
     $worker->rank_code = request()->rank_code;
     $worker->department = request()->department;
     $worker->requests_number=0;
@@ -62,6 +81,11 @@ public function registerStore()
             throw $exception; // Re-throw exception for further handling
         }
     }
+    }
+    else{
+        return redirect()->back()->with('error', 'Rank code is false. Please correct it.')->with('showAlert', true);
+    }
+    
     
     
 }
