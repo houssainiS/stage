@@ -1,3 +1,15 @@
+@if (session('showAlert'))
+    <script>
+        alert("{{ session('success') }}");
+    </script>
+@endif
+@if (session('showalert'))
+    <script>
+        alert("{{ session('error') }}");
+    </script>
+@endif
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +20,7 @@
     <div class="container">
         <h1 class="text-center">Login</h1>
         <div class="col-md-6 offset-md-3">
-            <form action="" method="post">
+            <form action="{{route('login.test')}}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="username">Username:</label>

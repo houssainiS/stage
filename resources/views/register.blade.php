@@ -1,3 +1,10 @@
+@if (session('showAlert'))
+    <script>
+        alert("{{ session('error') }}");
+    </script>
+@endif
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +15,7 @@
     <div class="container">
         <h1 class="text-center">Register</h1>
         <div class="col-md-6 offset-md-3">
-            <form action="" method="post">
+            <form action="{{route('register.store')}}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="username">Username:</label>
@@ -44,16 +51,14 @@
                 </div>
                 <div class="form-group">
                     <label for="department">Department:</label>
-                    <select class="form-control" id="rank" name="rank">
-                    <option value="">Select Department</option>
-                        <option value="1">IT Department</option>
-                        <option value="2">Stationery Department</option>
+                    <select class="form-control" id="department" name="department">
+                        <option value="IT">IT Department</option>
+                        <option value="Stationery">Stationery Department</option>
                         </select>
                 </div>
                 <div class="form-group">
                     <label for="rank">Rank:</label>
                     <select class="form-control" id="rank" name="rank">
-                    <option value="">Select Rank</option>
                         <option value="1">Rank 1</option>
                         <option value="2">Rank 2</option>
                         <option value="3">Rank 3</option>
