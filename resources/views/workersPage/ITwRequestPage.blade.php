@@ -34,7 +34,10 @@
 <br>
 <br>
 <br>
-<form>
+
+
+<form  method="post">
+@csrf
 <h2 class="test" align="center">TO / IT DPT</h2>
     <!-- Add more fields as needed -->
 

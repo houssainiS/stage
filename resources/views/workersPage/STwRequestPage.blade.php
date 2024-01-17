@@ -35,6 +35,7 @@
 <br>
 <br>
 <form>
+@csrf
 <h2 class="test" align="center">TO / Stationary DPT</h2>
     <!-- Add more fields as needed -->
 

@@ -25,3 +25,4 @@ Route::get('/worker/{worker}/aboutme',[WorkerController::class,'aboutme'])->name
 Route::get('/worker/{worker}/request',[WorkerController::class,'request'])->name('request');
 Route::get('/worker/{worker}/request/order/IT',[WorkerController::class,'ITrequestOrder'])->name('ITrequest.order');
 Route::get('/worker/{worker}/request/order/Stationary',[WorkerController::class,'STrequestOrder'])->name('STrequest.order');
+Route::post('/worker/{worker}/request/order/IT/store',[WorkerController::class,'ITrequestStore'])->name(name: 'ITrequestStore.store');
