@@ -1,8 +1,6 @@
 @extends('layouts.workersLayout')
 @section('title')worker @endsection
-@section('workerContent')
-
-
+@section('aboutmeContent')
 <header>
   <a href="{{route('welcome')}}" class="welcome">Welcome!</a>
   <nav>
@@ -13,9 +11,5 @@
     </ul>
   </nav>
 </header>
-
-
-
-
 
 @endsection

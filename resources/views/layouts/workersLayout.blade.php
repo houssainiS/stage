@@ -7,21 +7,12 @@
     <title>@yield('title')</title>
 </head>
 <body>
-<header>
-  <a href="{{route('welcome')}}" class="welcome">Welcome!</a>
-  <nav>
-    <ul>
-      <li><a href="#">request</a></li>
-      <li><a href="#">about me</a></li>
-      <li><a href="#">logout</a></li>
-    </ul>
-  </nav>
-</header>
+
 
     
 
 @yield('workerContent')
-
+@yield('aboutmeContent')
 
 
 

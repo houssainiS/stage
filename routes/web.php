@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\WorkerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +21,4 @@ Route::post('/register/store',[LoginController::class,'registerStore'])->name(na
 Route::post('/login/test',[LoginController::class,'loginTest'])->name(name: 'login.test');
 Route::get('/test',[LoginController::class,'test'])->name('test');
 Route::get('/worker/{worker}',[LoginController::class,'goWorker'])->name('goWorker');
+Route::get('/worker/{worker}/aboutme',[WorkerController::class,'aboutme'])->name('aboutme');
