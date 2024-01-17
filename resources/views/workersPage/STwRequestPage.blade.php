@@ -15,4 +15,142 @@
 
 
 
+
+<br>
+<table class="dates" border=1><tr>
+  <td>
+    Reference:
+  </td>
+  <td>
+    !!!!
+  </td></tr><tr>
+    <td>
+    Date:
+  </td>
+  <td>
+    {{$date}}
+  </td></tr>
+</table>
+<br>
+<br>
+<br>
+<form>
+<h2 class="test" align="center">TO / Stationary DPT</h2>
+    <!-- Add more fields as needed -->
+
+    <table border=1>
+      <tr>
+        <th colspan=3>
+        <label for="name">Full Name: {{$name}} {{$lastname}}</label><br>
+
+    <label for="id">ID N°: {{$id}}</label><br>
+
+    <label for="position">Position: {{$rank}}</label><br>
+
+    <label for="dpt">DPT: {{$department}}</label><br>
+        </th></td>
+        <tr>
+            <th>DESCRIPTION:</th><th>QUANTITY:</th><th>REMARKS:</th>
+        </tr>
+        <!-- Add more rows as needed -->
+        <tr>
+            <td>
+              <textarea name="" id="" cols="30" rows="5"></textarea>
+            </td>
+            <td>
+            <textarea name="" id="" cols="30" rows="5"></textarea>
+            </td>
+            <td>
+            <textarea name="" id="" cols="30" rows="5"></textarea>
+            </td>
+        </tr> 
+        <tr>
+            <td>
+              <textarea name="" id="" cols="30" rows="5"></textarea>
+            </td>
+            <td>
+            <textarea name="" id="" cols="30" rows="5"></textarea>
+            </td>
+            <td>
+            <textarea name="" id="" cols="30" rows="5"></textarea>
+            </td>
+        </tr> 
+        <tr>
+            <td>
+              <textarea name="" id="" cols="30" rows="5"></textarea>
+            </td>
+            <td>
+            <textarea name="" id="" cols="30" rows="5"></textarea>
+            </td>
+            <td>
+            <textarea name="" id="" cols="30" rows="5"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <textarea name="" id="" cols="30" rows="5"></textarea>
+            </td>
+            <td>
+            <textarea name="" id="" cols="30" rows="5"></textarea>
+            </td>
+            <td>
+            <textarea name="" id="" cols="30" rows="5"></textarea>
+            </td>
+        </tr>  
+     </table>
+  <br>
+     <table border=2>  
+      <tr>
+        <td>
+        Requestor Signature:
+        </td>
+        <td>
+        Head of DPT Signature:
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+        <label for="image-upload">Upload Signature:</label>
+  <input type="file" id="image-upload" name="image">
+        </td>
+        <td align="center">
+        waiting
+        </td>
+      </tr>
+     </table>
+     <br>
+     <!-- Submit Button -->
+     <center><button type="submit" class="btn btn-primary">Submit Request</button> </center>
+     
+</form>
+
+
+
+<style>
+    form {
+  max-width: 600px;
+  margin: auto;
+}
+
+label, input {
+  display: block;
+  margin-bottom: 5px;
+}
+
+table {
+  width:100%;
+}
+
+.dates{
+  max-width:300px;
+  margin:auto;
+  width : 100%;
+  float:right;
+}
+</style>
+
+
+
+
+
 @endsection

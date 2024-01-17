@@ -32,9 +32,25 @@ class WorkerController extends Controller
     }
 
     public function ITrequestOrder($worker){
-        return view ('workersPage.ITwRequestPage',['worker'=>$worker]);
+        $user=Worker::where('id',$worker)->first();
+        $name=$user->name;
+        $lastname=$user->last_name;
+        $cin=$user->cin;
+        $rank=$user->rank;
+        $department=$user->department;
+        $now=now();
+        return view ('workersPage.ITwRequestPage',['worker'=>$worker,'name'=>$name,'lastname'=>$lastname,'id'=>$cin,'rank'=>$rank ,
+        'department'=>$department,'date'=>$now]);
     }
     public function STrequestOrder($worker){
-        return view ('workersPage.STwRequestPage',['worker'=>$worker]);
+        $user=Worker::where('id',$worker)->first();
+        $name=$user->name;
+        $lastname=$user->last_name;
+        $cin=$user->cin;
+        $rank=$user->rank;
+        $department=$user->department;
+        $now=now();
+        return view ('workersPage.STwRequestPage',['worker'=>$worker,'name'=>$name,'lastname'=>$lastname,'id'=>$cin,'rank'=>$rank,
+        'department'=>$department,'date'=>$now]);
     }
 }
