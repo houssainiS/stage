@@ -20,5 +20,6 @@ Route::get('/register',[LoginController::class,'register'])->name(name:'register
 Route::post('/register/store',[LoginController::class,'registerStore'])->name(name: 'register.store');
 Route::post('/login/test',[LoginController::class,'loginTest'])->name(name: 'login.test');
 Route::get('/test',[LoginController::class,'test'])->name('test');
-Route::get('/worker/{worker}',[LoginController::class,'goWorker'])->name('goWorker');
+Route::get('/worker/{worker}/request',[WorkerController::class,'request'])->name('request');
 Route::get('/worker/{worker}/aboutme',[WorkerController::class,'aboutme'])->name('aboutme');
+Route::get('/worker/{worker}',[LoginController::class,'goWorker'])->name('goWorker');

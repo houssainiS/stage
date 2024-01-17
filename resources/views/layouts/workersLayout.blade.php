@@ -54,7 +54,30 @@ nav li a {
 nav li a:hover {
   color: #666;
 }
+
+/* Style the page as desired */
+.profile-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+
+.profile-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.profile-info li {
+  margin-bottom: 5px;
+}
+
+
+
 </style>
+
+
 
 </body>
 </html>

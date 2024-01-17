@@ -4,12 +4,12 @@
 
 
 <header>
-  <a href="{{route('welcome')}}" class="welcome">Welcome!</a>
+<a href="{{route('goWorker',$worker)}}" class="welcome">Welcome!</a>
   <nav>
     <ul>
       <li><a href="#">request</a></li>
       <li><a href="{{route('aboutme',$worker)}}">about me</a></li>
-      <li><a href="#">logout</a></li>
+      <li><a href="{{route('welcome')}}">logout</a></li>
     </ul>
   </nav>
 </header>
