@@ -9,7 +9,8 @@
 <body>
 
 
-@yield('wRequestPageContent')
+@yield('STwRequestPageContent')
+@yield('ITwRequestPageContent')
 @yield('workerRequestContent')
 @yield('workerContent')
 @yield('aboutmeContent')

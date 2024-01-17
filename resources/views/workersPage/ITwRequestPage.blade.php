@@ -1,6 +1,6 @@
 @extends('layouts.workersLayout')
 @section('title')request @endsection
-@section('wRequestPageContent')
+@section('ITwRequestPageContent')
 
 <header>
   <a href="{{route('goWorker',$worker)}}" class="welcome">Welcome!</a>

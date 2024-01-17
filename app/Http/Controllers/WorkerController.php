@@ -31,7 +31,10 @@ class WorkerController extends Controller
         return view ('workersPage.workerRequest',['worker'=>$worker]);
     }
 
-    public function requestOrder($worker){
-        return view ('workersPage.wRequestPage',['worker'=>$worker]);
+    public function ITrequestOrder($worker){
+        return view ('workersPage.ITwRequestPage',['worker'=>$worker]);
+    }
+    public function STrequestOrder($worker){
+        return view ('workersPage.STwRequestPage',['worker'=>$worker]);
     }
 }

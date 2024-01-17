@@ -19,8 +19,8 @@
     <a href="#" class="history-button">History</a>
   </div>
   <div class="hidden-buttons">
-    <a href="#" class="custom-button">IT</a>
-    <a href="#" class="custom-button">Stationary</a>
+    <a href="{{route('ITrequest.order',$worker)}}" class="custom-button">IT</a>
+    <a href="{{route('STrequest.order',$worker)}}" class="custom-button">Stationary</a>
   </div>
 </div>
 

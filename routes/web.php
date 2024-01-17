@@ -23,4 +23,5 @@ Route::get('/test',[LoginController::class,'test'])->name('test');
 Route::get('/worker/{worker}',[LoginController::class,'goWorker'])->name('goWorker');
 Route::get('/worker/{worker}/aboutme',[WorkerController::class,'aboutme'])->name('aboutme');
 Route::get('/worker/{worker}/request',[WorkerController::class,'request'])->name('request');
-Route::get('/worker/{worker}/request/order',[WorkerController::class,'requestOrder'])->name('request.order');
+Route::get('/worker/{worker}/request/order/IT',[WorkerController::class,'ITrequestOrder'])->name('ITrequest.order');
+Route::get('/worker/{worker}/request/order/Stationary',[WorkerController::class,'STrequestOrder'])->name('STrequest.order');
