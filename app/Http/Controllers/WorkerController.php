@@ -27,4 +27,7 @@ class WorkerController extends Controller
         return view('workersPage.workerPage',['worker'=>$worker]);
     
     }
+    public function request($worker){
+        return view ('workersPage.workerRequest',['worker'=>$worker]);
+    }
 }
