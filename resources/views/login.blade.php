@@ -30,12 +30,11 @@
                 <div class="form-group">
                     <label for="rank">Rank:</label>
                     <select class="form-control" id="rank" name="rank">
-                        <option value="worker">Worker</option>
-                        <option value="2">Rank 2</option>
-                        <option value="3">Rank 3</option>
-                        <option value="4">Rank 4</option>
-                        <option value="5">Rank 5</option>
-                        <option value="6">Rank 6</option>
+                        <option value="Worker">Worker</option>
+                        <option value="Department head">Department head</option>
+                        <option value="DAF">Director of administration and finance (DAF)</option>
+                        <option value="Asset managment and logistic coordinator">Asset managment and logistic coordinator</option>
+                        <option value="BOD">Board of directors (BOD)</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Login</button>
