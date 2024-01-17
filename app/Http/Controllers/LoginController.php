@@ -33,18 +33,21 @@ class LoginController extends Controller
 public function registerStore()
 { 
     $rank = request()->rank;
-    $rankcode=request()->rank_code;
-    if($rankcode ==666 && $rank=="6"){
+    $rank_code=request()->rank_code;
+    $department=request()->department;
+    if($department=="other"){
+        $rank_code="111";
+        $rank="Worker";
+    }
+    if($rank_code == "555" && $rank=="BOD"){
         $ranktest=true;
-    }elseif($rankcode =="555" && $rank=="5"){
+    }elseif($rank_code =="444" && $rank=="Asset managment and logistic coordinator"){
         $ranktest=true;
-    }elseif($rankcode =="444" && $rank=="4"){
+    }elseif($rank_code =="333" && $rank=="DAF"){
         $ranktest=true;
-    }elseif($rankcode =="333" && $rank=="3"){
+    }elseif($rank_code =="222" && $rank=="Department head"){
         $ranktest=true;
-    }elseif($rankcode =="222" && $rank=="2"){
-        $ranktest=true;
-    }elseif($rankcode =="111" && $rank=="1"){
+    }elseif($rank_code =="111" && $rank=="Worker"){
         $ranktest=true;
     }else{
         $ranktest=false;
@@ -63,8 +66,8 @@ public function registerStore()
     $worker->cin = request()->id;
     $worker->phone_number = request()->phone_number;
     $worker->rank = $rank;
-    $worker->rank_code = request()->rank_code;
-    $worker->department = request()->department;
+    $worker->rank_code = $rank_code;
+    $worker->department = $department;
     $worker->requests_number=0;
 
     try {
@@ -92,5 +95,9 @@ public function registerStore()
 
 public function test(){
     return view('test');
+}
+
+public function welcome() {
+    return view('welcome');
 }
 }

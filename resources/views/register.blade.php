@@ -50,17 +50,17 @@
                     <select class="form-control" id="department" name="department">
                         <option value="IT">IT Department</option>
                         <option value="Stationery">Stationery Department</option>
+                        <option value="other">normal worker</option>
                         </select>
                 </div>
                 <div class="form-group">
                     <label for="rank">Rank:</label>
                     <select class="form-control" id="rank" name="rank">
-                        <option value="1">Rank 1</option>
-                        <option value="2">Rank 2</option>
-                        <option value="3">Rank 3</option>
-                        <option value="4">Rank 4</option>
-                        <option value="5">Rank 5</option>
-                        <option value="6">Rank 6</option>
+                        <option value="Worker">Worker</option>
+                        <option value="Department head">Department head</option>
+                        <option value="DAF">Director of administration and finance (DAF)</option>
+                        <option value="Asset managment and logistic coordinator">Asset managment and logistic coordinator</option>
+                        <option value="BOD">Board of directors (BOD)</option>
                         </select>
                 </div>
                 <div class="form-group">
@@ -69,7 +69,27 @@
                 </div>
                 
                 <button type="submit" class="btn btn-primary">Register</button>
+
+<script>
+   document.getElementById('department').addEventListener('change', function() {
+    const selectedDepartment = this.value;
+    const rankDiv = document.getElementById('rank').parentElement;
+    const rankCodeDiv = document.getElementById('rank_code').parentElement;
+
+    if (selectedDepartment === 'other') {
+        rankDiv.style.display = 'none';
+        rankCodeDiv.style.display = 'none';
+    } else {
+        rankDiv.style.display = 'block';
+        rankCodeDiv.style.display = 'block';
+    }
+});
+
+</script>
+
+
             </form>
         </div>
     </div>
 @endsection
+
