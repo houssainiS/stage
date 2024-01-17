@@ -30,4 +30,8 @@ class WorkerController extends Controller
     public function request($worker){
         return view ('workersPage.workerRequest',['worker'=>$worker]);
     }
+
+    public function requestOrder($worker){
+        return view ('workersPage.wRequestPage',['worker'=>$worker]);
+    }
 }
