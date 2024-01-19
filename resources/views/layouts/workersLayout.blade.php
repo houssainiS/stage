@@ -8,7 +8,7 @@
 </head>
 <body>
 
-
+@yield('historyContent')
 @yield('STwRequestPageContent')
 @yield('ITwRequestPageContent')
 @yield('workerRequestContent')

@@ -144,4 +144,17 @@ $updated_requests_number=$old_requests_number+1;
 $rn->update(['requests_number'=>$updated_requests_number]);
 return redirect()->route('request',['worker'=>$workerid])->with('success', 'Worker requested successfully!')->with('showAlert', true);
     }
+
+public function history($worker){
+    $data1=Itrequest::where('requestor_id',$worker)->get();
+    $data2=Strequest::where('requestor_id',$worker)->get();
+    $mergedData = $data1->concat($data2);
+    $sortedData = $mergedData->sortBy('reference');
+//dd($mergedData);
+    return view ('workersPage.workerHistory',['worker'=>$worker,'data'=>$mergedData]);
+}
+
+
+
+
 }

@@ -27,3 +27,5 @@ Route::get('/worker/{worker}/request/order/IT',[WorkerController::class,'ITreque
 Route::get('/worker/{worker}/request/order/Stationary',[WorkerController::class,'STrequestOrder'])->name('STrequest.order');
 Route::post('/worker/{worker}/request/order/IT/store',[WorkerController::class,'ITrequestStore'])->name(name: 'ITrequestStore.store');
 Route::post('/worker/{worker}/request/order/ST/store',[WorkerController::class,'STrequestStore'])->name(name: 'STrequestStore.store');
+Route::get('/worker/{worker}/history',[WorkerController::class,'history'])->name('history');
+Route::get('/worker/{worker}/history/{request}',[WorkerController::class,'requestHistory'])->name('request.history');

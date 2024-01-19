@@ -28,7 +28,7 @@
 <div class="container">
   <div class="main-buttons">
     <button class="order-button">Order</button>
-    <a href="#" class="history-button">History</a>
+    <a href="{{route('history',$worker)}}" class="history-button">History</a>
   </div>
   <div class="hidden-buttons">
     <a href="{{route('ITrequest.order',$worker)}}" class="custom-button">IT</a>
