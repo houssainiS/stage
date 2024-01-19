@@ -3,19 +3,25 @@
 @section('workerContent')
 
 
-<header>
-<a href="{{route('goWorker',$worker)}}" class="welcome">Welcome!</a>
-  <nav>
-    <ul>
-      <li><a href="{{route('request',$worker)}}">request</a></li>
-      <li><a href="{{route('aboutme',$worker)}}">about me</a></li>
-      <li><a href="{{route('welcome')}}">logout</a></li>
-    </ul>
-  </nav>
-</header>
+<style>
+    .welcome-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh; /* 100% of the viewport height */
+      background-color: #f4f4f4; /* Optional background color */
+    }
 
+    .welcome-text {
+      font-size: 3em; /* Adjust the font size as needed */
+      text-align: center;
+      color: #333; /* Text color */
+    }
+  </style>
 
-
+<div class="welcome-container">
+    <h1 class="welcome-text">Welcome!</h1>
+  </div>
 
 
 @endsection
