@@ -27,7 +27,7 @@
 <br>
 
 
-<form  method="post" action="{{route('ITrequestStore.store',$worker)}}">
+<form  method="post" action="{{route('DHITrequestStore.store',$worker)}}">
 @csrf
 <h2 class="test" align="center">TO / IT DPT</h2>
     <!-- Add more fields as needed -->

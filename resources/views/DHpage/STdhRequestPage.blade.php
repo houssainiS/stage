@@ -27,7 +27,7 @@
 <br>
 
 
-<form  method="post" action="{{route('STrequestStore.store',$worker)}}">
+<form  method="post" action="{{route('DHSTrequestStore.store',$worker)}}">
 @csrf
 <h2 class="test" align="center">TO / Stationery DPT</h2>
     <!-- Add more fields as needed -->

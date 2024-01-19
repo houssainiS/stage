@@ -22,8 +22,8 @@
     <button class="history-button">history</button>
   </div>
   <div class="hidden-buttons">
-    <a href="{{route('ITrequest.order',$worker)}}" class="custom-button">IT</a>
-    <a href="{{route('STrequest.order',$worker)}}" class="custom-button">Stationary</a>
+    <a href="{{route('DHITrequest.order',$worker)}}" class="custom-button">IT</a>
+    <a href="{{route('DHSTrequest.order',$worker)}}" class="custom-button">Stationary</a>
   </div>
   <div class="hidden-buttons2">
     <a href="{{route('IThistory',$worker)}}" class="custom-button">IT</a>

@@ -12,7 +12,7 @@
   <nav>
     <ul>
       <li><a href="">v</a></li>
-      <li><a href="{{route('request',$worker)}}">request</a></li>
+      <li><a href="{{route('DHrequest',$worker)}}">request</a></li>
       <li><a href="{{route('aboutmeDH',$worker)}}">about me</a></li>
       <li><a href="{{route('welcome')}}">logout</a></li>
     </ul>

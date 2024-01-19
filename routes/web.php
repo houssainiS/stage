@@ -36,7 +36,8 @@ Route::get('/worker/{worker}/history/{request}',[WorkerController::class,'reques
 //department head
 Route::get('/DepartmentHead/{DH}',[DhController::class,'goDH'])->name('goDH');
 Route::get('/DepartmentHead/{DH}/aboutme',[DhController::class,'aboutmeDH'])->name('aboutmeDH');
-Route::get('/DepartmentHead/{DH}/request',[DhController::class,'request'])->name('request');
-Route::get('/DepartmentHead/{DH}/request/order/IT',[DHController::class,'ITrequestOrder'])->name('ITrequest.order');
-Route::get('/DepartmentHead/{DH}/request/order/Stationary',[DHController::class,'STrequestOrder'])->name('STrequest.order');
-
+Route::get('/DepartmentHead/{DH}/request',[DhController::class,'request'])->name('DHrequest');
+Route::get('/DepartmentHead/{DH}/request/order/IT',[DHController::class,'ITrequestOrder'])->name('DHITrequest.order');
+Route::get('/DepartmentHead/{DH}/request/order/Stationary',[DHController::class,'STrequestOrder'])->name('DHSTrequest.order');
+Route::post('/DepartmentHead/{DH}/request/order/IT/store',[DHController::class,'ITrequestStore'])->name(name: 'DHITrequestStore.store');
+Route::post('/DepartmentHead/{DH}/request/order/ST/store',[DHController::class,'STrequestStore'])->name(name: 'DHSTrequestStore.store');
