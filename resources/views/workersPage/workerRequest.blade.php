@@ -2,6 +2,18 @@
 @section('title')request @endsection
 @section('workerRequestContent')
 
+
+@if (session('showAlert'))
+    <script>
+        alert("{{ session('success') }}");
+    </script>
+@endif
+@if (session('showalert'))
+    <script>
+        alert("{{ session('error') }}");
+    </script>
+@endif
+
 <header>
   <a href="{{route('goWorker',$worker)}}" class="welcome">Welcome!</a>
   <nav>

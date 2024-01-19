@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Worker;
 use App\Models\User;
 use App\Models\Itrequest;
+use App\Models\Strequest;
 class WorkerController extends Controller
 {
     public function aboutme($worker){
@@ -93,6 +94,54 @@ $itrequest->BOD2_approval_date = request('BOD2_approval_date');
 $itrequest->signature = request('signature'); 
 
 $itrequest->save();
-return redirect()->route('request',['worker'=>$workerid])->with('success', 'Worker registered successfully!')->with('showalert', true);
+
+$rn= Worker::find($workerid);
+$old_requests_number =$rn->requests_number;
+$updated_requests_number=$old_requests_number+1;
+$rn->update(['requests_number'=>$updated_requests_number]);
+
+return redirect()->route('request',['worker'=>$workerid])->with('success', 'Worker requested successfully!')->with('showAlert', true);
+    }
+
+    public function STrequestStore($workerid){
+        $user=Worker::where('id',$workerid)->first();
+        $strequest = new StRequest();
+        $strequest->requestor_id = $workerid;
+        $strequest->reference = $user->requests_number;
+        $strequest->description1 = request('description1');
+        $strequest->description2 = request('description2');
+        $strequest->description3 =request('description3');
+        $strequest->description4 = request('description4');
+        $strequest->quantity1 = request('quantity1');
+        $strequest->quantity2 = request('quantity2');
+        $strequest->quantity3 = request('quantity3');
+        $strequest->quantity4 = request('quantity4');
+        $strequest->remarks1 = request('remarks1');
+        $strequest->remarks2 = request('remarks2');
+        $strequest->remarks3 = request('remarks3');
+        $strequest->remarks4 = request('remarks4');
+        $strequest->signature =request('signature');
+        $strequest->DH_approval = request('DH_approval') ?? false;
+        $strequest->DH_approval_date = request('DH_approval_date');
+        $strequest->AMLC_approval = request('AMLC_approval') ?? false;
+        $strequest->AMLC_approval_date = request('AMLC_approval_date');
+        $strequest->BOD1_approval = request('BOD1_approval') ?? false;
+        $strequest->BOD1_approval_date = request('BOD1_approval_date');
+        $strequest->AMLC2_approval = request('AMLC2_approval') ?? false;
+        $strequest->AMLC2_approval_date = request('AMLC2_approval_date');
+        $strequest->AMLC_found = request('AMLC_found') ?? false;
+        $strequest->AMLC_found_date = request('AMLC_found_date');
+        $strequest->price = request('price');
+        $strequest->BOD2_approval = request('BOD2_approval') ?? false;
+        $strequest->BOD2_approval_date = request('BOD2_approval_date');
+        $strequest->AMLC_bought = request('AMLC_bought') ?? false;
+        $strequest->AMLC_bought_date = request('AMLC_bought_date');
+
+$strequest->save();
+$rn= Worker::find($workerid);
+$old_requests_number =$rn->requests_number;
+$updated_requests_number=$old_requests_number+1;
+$rn->update(['requests_number'=>$updated_requests_number]);
+return redirect()->route('request',['worker'=>$workerid])->with('success', 'Worker requested successfully!')->with('showAlert', true);
     }
 }

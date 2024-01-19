@@ -1,8 +1,12 @@
 @extends('layouts.workersLayout')
 @section('title')request @endsection
-@section('STwRequestPageContent')
+@section('ITwRequestPageContent')
+
+
 
 <header>
+
+
   <a href="{{route('goWorker',$worker)}}" class="welcome">Welcome!</a>
   <nav>
     <ul>
@@ -12,8 +16,6 @@
     </ul>
   </nav>
 </header>
-
-
 
 
 <br>
@@ -28,15 +30,17 @@
     Date:
   </td>
   <td>
-    {{$date}}
+  {{$date}}
   </td></tr>
 </table>
 <br>
 <br>
 <br>
-<form>
+
+
+<form  method="post" action="{{route('STrequestStore.store',$worker)}}">
 @csrf
-<h2 class="test" align="center">TO / Stationary DPT</h2>
+<h2 class="test" align="center">TO / Stationery DPT</h2>
     <!-- Add more fields as needed -->
 
     <table border=1>
@@ -56,46 +60,46 @@
         <!-- Add more rows as needed -->
         <tr>
             <td>
-              <textarea name="" id="" cols="30" rows="5"></textarea>
+              <textarea name="description1" id="" cols="30" rows="5"></textarea>
             </td>
             <td>
-            <textarea name="" id="" cols="30" rows="5"></textarea>
+            <textarea name="quantity1" id="" cols="30" rows="5"></textarea>
             </td>
             <td>
-            <textarea name="" id="" cols="30" rows="5"></textarea>
-            </td>
-        </tr> 
-        <tr>
-            <td>
-              <textarea name="" id="" cols="30" rows="5"></textarea>
-            </td>
-            <td>
-            <textarea name="" id="" cols="30" rows="5"></textarea>
-            </td>
-            <td>
-            <textarea name="" id="" cols="30" rows="5"></textarea>
+            <textarea name="remarks1" id="" cols="30" rows="5"></textarea>
             </td>
         </tr> 
         <tr>
             <td>
-              <textarea name="" id="" cols="30" rows="5"></textarea>
+              <textarea name="description2" id="" cols="30" rows="5"></textarea>
             </td>
             <td>
-            <textarea name="" id="" cols="30" rows="5"></textarea>
+            <textarea name="quantity2" id="" cols="30" rows="5"></textarea>
             </td>
             <td>
-            <textarea name="" id="" cols="30" rows="5"></textarea>
+            <textarea name="remarks2" id="" cols="30" rows="5"></textarea>
+            </td>
+        </tr> 
+        <tr>
+            <td>
+              <textarea name="description3" id="" cols="30" rows="5"></textarea>
+            </td>
+            <td>
+            <textarea name="quantity3" id="" cols="30" rows="5"></textarea>
+            </td>
+            <td>
+            <textarea name="remarks3" id="" cols="30" rows="5"></textarea>
             </td>
         </tr>
         <tr>
             <td>
-              <textarea name="" id="" cols="30" rows="5"></textarea>
+              <textarea name="description4" id="" cols="30" rows="5"></textarea>
             </td>
             <td>
-            <textarea name="" id="" cols="30" rows="5"></textarea>
+            <textarea name="quantity4" id="" cols="30" rows="5"></textarea>
             </td>
             <td>
-            <textarea name="" id="" cols="30" rows="5"></textarea>
+            <textarea name="quantity4" id="" cols="30" rows="5"></textarea>
             </td>
         </tr>  
      </table>
@@ -112,7 +116,7 @@
       <tr>
         <td align="center">
         <label for="image-upload">Upload Signature:</label>
-  <input type="file" id="image-upload" name="image">
+  <input type="file" id="image-upload" name="signature">
         </td>
         <td align="center">
         waiting

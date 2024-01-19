@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('itrequests', function (Blueprint $table) {
+        Schema::create('strequests', function (Blueprint $table) {
             $table->id();
             $table->integer('requestor_id');
             $table->string('reference');
@@ -30,10 +30,12 @@ return new class extends Migration
             $table->binary('signature')->nullable(); //image signature
             $table->boolean('DH_approval')->default(false);
             $table->date('DH_approval_date')->nullable();
-            $table->boolean('BOD1_approval')->default(false);
-            $table->date('BOD1_approval_date')->nullable();
             $table->boolean('AMLC_approval')->default(false);
             $table->date('AMLC_approval_date')->nullable();
+            $table->boolean('BOD1_approval')->default(false);
+            $table->date('BOD1_approval_date')->nullable();
+            $table->boolean('AMLC2_approval')->default(false);
+            $table->date('AMLC2_approval_date')->nullable();
             $table->boolean('AMLC_found')->default(false);
             $table->date('AMLC_found_date')->nullable();
             $table->string('price')->nullable();
@@ -50,6 +52,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('itrequests');
+        Schema::dropIfExists('strequests');
     }
 };
