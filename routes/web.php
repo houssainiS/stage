@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\WorkerController;
+use App\Http\Controllers\DhController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,3 +32,5 @@ Route::get('/worker/{worker}/IThistory',[WorkerController::class,'IThistory'])->
 Route::get('/worker/{worker}/SThistory',[WorkerController::class,'SThistory'])->name('SThistory');
 Route::get('/worker/{worker}/history',[WorkerController::class,'history'])->name('history');
 Route::get('/worker/{worker}/history/{request}',[WorkerController::class,'requestHistory'])->name('request.history');
+//this is for dh
+Route::get('/DepartmentHead/{DH}',[DhController::class,'goDH'])->name('goDH');

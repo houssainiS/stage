@@ -24,7 +24,12 @@ class LoginController extends Controller
         return  redirect()->back()->with('error', 'Wrong Username , Password or Rank. Try again.')->with('showalert', true);
    }
    else{
-    return redirect()->route('goWorker',$user->id)->with('success', 'Worker registered successfully!')->with('showalert', true);
+    if($rank=="Department head"){
+        return redirect()->route('goDH',$user->id)->with('success', 'Worker registered successfully!')->with('showalert', true);
+    }else{
+        return redirect()->route('goWorker',$user->id)->with('success', 'Worker registered successfully!')->with('showalert', true);
+    }
+    
    }
    }
     
