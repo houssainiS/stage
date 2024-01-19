@@ -21,7 +21,7 @@
 
 
 
-
+@yield('DHhistoryContent')
 @yield('ITdhRequestPageContent')
 @yield('DHContent')
 @yield('DHaboutmeContent')

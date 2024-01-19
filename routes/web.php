@@ -41,3 +41,6 @@ Route::get('/DepartmentHead/{DH}/request/order/IT',[DHController::class,'ITreque
 Route::get('/DepartmentHead/{DH}/request/order/Stationary',[DHController::class,'STrequestOrder'])->name('DHSTrequest.order');
 Route::post('/DepartmentHead/{DH}/request/order/IT/store',[DHController::class,'ITrequestStore'])->name(name: 'DHITrequestStore.store');
 Route::post('/DepartmentHead/{DH}/request/order/ST/store',[DHController::class,'STrequestStore'])->name(name: 'DHSTrequestStore.store');
+Route::get('/DepartmentHead/{DH}/IThistory',[DHController::class,'IThistory'])->name('DhIThistory');
+Route::get('/DepartmentHead/{DH}/SThistory',[WorkerController::class,'SThistory'])->name('DhSThistory');
+Route::get('/DepartmentHead/{DH}/history',[DhController::class,'history'])->name('DhHistory');
