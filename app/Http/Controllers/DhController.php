@@ -210,4 +210,16 @@ return redirect()->route('DHrequest',['DH'=>$workerid])->with('success', 'Worker
     }
 
 
+public function approvals($worker){
+    return view('DHpage.DHapprovalsPage',['worker'=>$worker]);
+}
+
+
+
+
+
+
+
+
+
 }

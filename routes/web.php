@@ -45,5 +45,6 @@ Route::get('/DepartmentHead/{DH}/IThistory',[DHController::class,'IThistory'])->
 Route::get('/DepartmentHead/{DH}/SThistory',[DHController::class,'SThistory'])->name('DhSThistory');
 Route::get('/DepartmentHead/{DH}/history',[DhController::class,'history'])->name('DhHistory');
 Route::get('/DepartmentHead/{DH}/history/{request}',[DhController::class,'requestHistory'])->name('DHrequest.history');
+Route::get('/DepartmentHead/{DH}/approvals',[DhController::class,'approvals'])->name('DhApprovals');
 // dh done
 //
