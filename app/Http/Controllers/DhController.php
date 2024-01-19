@@ -44,4 +44,15 @@ class DhController extends Controller
         return view ('DHpage.ITdhRequestPage',['worker'=>$worker,'name'=>$name,'lastname'=>$lastname,'id'=>$cin,'rank'=>$rank ,
         'department'=>$department,'date'=>$now]);
     }
+    public function STrequestOrder($worker){
+        $user=Worker::where('id',$worker)->first();
+        $name=$user->name;
+        $lastname=$user->last_name;
+        $cin=$user->cin;
+        $rank=$user->rank;
+        $department=$user->department;
+        $now=now();
+        return view ('DHpage.STdhRequestPage',['worker'=>$worker,'name'=>$name,'lastname'=>$lastname,'id'=>$cin,'rank'=>$rank,
+        'department'=>$department,'date'=>$now]);
+    }
 }
