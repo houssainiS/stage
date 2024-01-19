@@ -19,6 +19,8 @@
   </nav>
 </header>
 
+
+@yield('ITdhRequestPageContent')
 @yield('DHContent')
 @yield('DHaboutmeContent')
 @yield('DHworkerRequestContent')

@@ -37,4 +37,5 @@ Route::get('/worker/{worker}/history/{request}',[WorkerController::class,'reques
 Route::get('/DepartmentHead/{DH}',[DhController::class,'goDH'])->name('goDH');
 Route::get('/DepartmentHead/{DH}/aboutme',[DhController::class,'aboutmeDH'])->name('aboutmeDH');
 Route::get('/DepartmentHead/{DH}/request',[DhController::class,'request'])->name('request');
+Route::get('/DepartmentHead/{DH}/request/order/IT',[DHController::class,'ITrequestOrder'])->name('ITrequest.order');
 
