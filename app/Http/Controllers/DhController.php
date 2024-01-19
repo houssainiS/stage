@@ -13,4 +13,24 @@ class DhController extends Controller
         return view('DHpage.DhPage',['worker'=>$DH]);
     
     }
+
+    public function aboutmeDH($worker){
+        $user=Worker::where('id',$worker)->first();
+        $username=$user->username;
+        $name=$user->name;
+        $lastname=$user->last_name;
+        $email=$user->email;
+        $age=$user->age;
+        $cin=$user->cin;
+        $phone=$user->phone_number;
+        $rank=$user->rank;
+        $department=$user->department;
+        $requests_number=$user->requests_number;
+
+        return view('DHpage.aboutme',['worker'=>$worker,'username'=>$username,'name'=>$name,'lastname'=>$lastname,'email'=>$email,
+        'age'=>$age,'phone'=>$phone,'rank'=>$rank,'department'=>$department,'requests_number'=>$requests_number,'id'=>$cin,]);
+    }
+    public function request($worker){
+        return view ('DHpage.DhRequest',['worker'=>$worker]);
+    }
 }

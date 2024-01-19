@@ -1,6 +1,6 @@
-@extends('layouts.workersLayout')
-@section('title')about me @endsection
-@section('aboutmeContent')
+@extends('layouts.DHLayout')
+@section('title')aboutme @endsection
+@section('DHaboutmeContent')
 
 
 

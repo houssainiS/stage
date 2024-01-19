@@ -21,6 +21,7 @@ Route::get('/register',[LoginController::class,'register'])->name(name:'register
 Route::post('/register/store',[LoginController::class,'registerStore'])->name(name: 'register.store');
 Route::post('/login/test',[LoginController::class,'loginTest'])->name(name: 'login.test');
 Route::get('/test',[LoginController::class,'test'])->name('test');
+//worker
 Route::get('/worker/{worker}',[LoginController::class,'goWorker'])->name('goWorker');
 Route::get('/worker/{worker}/aboutme',[WorkerController::class,'aboutme'])->name('aboutme');
 Route::get('/worker/{worker}/request',[WorkerController::class,'request'])->name('request');
@@ -32,5 +33,8 @@ Route::get('/worker/{worker}/IThistory',[WorkerController::class,'IThistory'])->
 Route::get('/worker/{worker}/SThistory',[WorkerController::class,'SThistory'])->name('SThistory');
 Route::get('/worker/{worker}/history',[WorkerController::class,'history'])->name('history');
 Route::get('/worker/{worker}/history/{request}',[WorkerController::class,'requestHistory'])->name('request.history');
-//this is for dh
+//department head
 Route::get('/DepartmentHead/{DH}',[DhController::class,'goDH'])->name('goDH');
+Route::get('/DepartmentHead/{DH}/aboutme',[DhController::class,'aboutmeDH'])->name('aboutmeDH');
+Route::get('/DepartmentHead/{DH}/request',[DhController::class,'request'])->name('request');
+
