@@ -37,5 +37,6 @@ class Itrequest extends Model
         'BOD2_approval_date',
         'AMLC_bought',
         'AMLC_bought_date',
+        'IT_ST'
     ];
 }

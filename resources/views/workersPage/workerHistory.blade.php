@@ -28,7 +28,7 @@
   @foreach($data as $item)
     <tr>
       <th scope="row">{{$item->reference}}</th>
-      <td>{{$item->description1}}</td>
+      <td><a href="{{route('request.history',[$worker,$item->reference])}}" class="">{{$item->description1}}</a></td>
       <td>{{$item->created_at}}</td>
       <td>waiting</td>
     </tr>

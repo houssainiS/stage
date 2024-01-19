@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('requestor_id');
             $table->string('reference');
+            $table->string('IT_ST')->nullable();
             $table->string('description1')->nullable();
             $table->string('description2')->nullable();
             $table->string('description3')->nullable();

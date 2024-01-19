@@ -8,6 +8,8 @@
 </head>
 <body>
 
+
+@yield('oneHistoryContent')
 @yield('historyContent')
 @yield('STwRequestPageContent')
 @yield('ITwRequestPageContent')

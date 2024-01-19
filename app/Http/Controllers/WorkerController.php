@@ -86,6 +86,7 @@ $itrequest->AMLC_found_date = request('AMLC_found_date');
 $itrequest->price = request('price');
 $itrequest->BOD2_approval = request('BOD2_approval')?? false;
 $itrequest->BOD2_approval_date = request('BOD2_approval_date');
+$itrequest->IT_ST="IT";
 
 
 
@@ -136,6 +137,7 @@ return redirect()->route('request',['worker'=>$workerid])->with('success', 'Work
         $strequest->BOD2_approval_date = request('BOD2_approval_date');
         $strequest->AMLC_bought = request('AMLC_bought') ?? false;
         $strequest->AMLC_bought_date = request('AMLC_bought_date');
+        $strequest->IT_ST="ST";
 
 $strequest->save();
 $rn= Worker::find($workerid);
@@ -154,7 +156,42 @@ public function history($worker){
     return view ('workersPage.workerHistory',['worker'=>$worker,'data'=>$mergedData]);
 }
 
+public function requestHistory($worker,$reference){
+    $user=Worker::where('id',$worker)->first();
+    $data1=Itrequest::where('requestor_id',$worker)->get();
+    $data2=Strequest::where('requestor_id',$worker)->get();
+    $mergedData = $data1->concat($data2);
 
+    $referenceToFind = $reference; // Replace with the actual reference value you're looking for
+
+$foundItem = $mergedData->first(function ($item) use ($reference) {
+    return $item->reference == $reference;
+});
+
+//dd($foundItem);
+
+        $name=$user->name;
+        $lastname=$user->last_name;
+        $cin=$user->cin;
+        $rank=$user->rank;
+        $department=$user->department;
+        $now=$foundItem->created_at;
+
+if ($foundItem) {
+    
+} else {
+    // Item not found
+    abort(404);
+}
+    //dd($oneOrder);
+    
+
+
+
+
+    return view('workersPage.oneHistory',['worker'=>$worker,'name'=>$name,'lastname'=>$lastname,'id'=>$cin,'rank'=>$rank ,
+    'department'=>$department,'date'=>$now ,'order'=>$foundItem]) ;
+}
 
 
 }
