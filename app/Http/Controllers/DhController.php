@@ -172,6 +172,42 @@ return redirect()->route('DHrequest',['DH'=>$workerid])->with('success', 'Worker
     //dd($sortedData);
         return view ('DHpage.DhHistory',['worker'=>$worker,'data'=>$sortedData,'requests_number'=>$requests_number]);
     }
+    public function requestHistory($worker,$reference){
+        $user=Worker::where('id',$worker)->first();
+        $data1=Itrequest::where('requestor_id',$worker)->get();
+        $data2=Strequest::where('requestor_id',$worker)->get();
+        $mergedData = $data1->concat($data2);
+    
+        $referenceToFind = $reference; // Replace with the actual reference value you're looking for
+    
+    $foundItem = $mergedData->first(function ($item) use ($reference) {
+        return $item->reference == $reference;
+    });
+    
+    //dd($foundItem);
+    
+            $name=$user->name;
+            $lastname=$user->last_name;
+            $cin=$user->cin;
+            $rank=$user->rank;
+            $department=$user->department;
+            $now=$foundItem->created_at;
+            
+    if ($foundItem) {
+        
+    } else {
+        // Item not found
+        abort(404);
+    }
+        //dd($oneOrder);
+        
+    
+    
+    
+    
+        return view('DHpage.DHoneHistory',['worker'=>$worker,'name'=>$name,'lastname'=>$lastname,'id'=>$cin,'rank'=>$rank ,
+        'department'=>$department,'date'=>$now ,'order'=>$foundItem ]) ;
+    }
 
 
 }

@@ -11,7 +11,7 @@
   <a href="{{route('goDH',$worker)}}" class="welcome">Welcome</a>
   <nav>
     <ul>
-      <li><a href="">v</a></li>
+      <li class="mid"><a href="">Approvals</a></li>
       <li><a href="{{route('DHrequest',$worker)}}">request</a></li>
       <li><a href="{{route('aboutmeDH',$worker)}}">about me</a></li>
       <li><a href="{{route('welcome')}}">logout</a></li>
@@ -20,7 +20,7 @@
 </header>
 
 
-
+@yield('DHoneHistoryContent')
 @yield('DHhistoryContent')
 @yield('ITdhRequestPageContent')
 @yield('DHContent')
@@ -57,7 +57,9 @@ nav li {
   display: inline-block;
   padding: 0.5em;
 }
-
+.mid{
+  margin-right:500px;
+}
 nav li a {
   text-decoration: none;
   color: #333;
