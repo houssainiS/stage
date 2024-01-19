@@ -28,11 +28,16 @@
 <div class="container">
   <div class="main-buttons">
     <button class="order-button">Order</button>
-    <a href="{{route('history',$worker)}}" class="history-button">History</a>
+    <button class="history-button">history</button>
   </div>
   <div class="hidden-buttons">
     <a href="{{route('ITrequest.order',$worker)}}" class="custom-button">IT</a>
     <a href="{{route('STrequest.order',$worker)}}" class="custom-button">Stationary</a>
+  </div>
+  <div class="hidden-buttons2">
+    <a href="{{route('IThistory',$worker)}}" class="custom-button">IT</a>
+    <a href="{{route('SThistory',$worker)}}" class="custom-button">Stationary</a>
+    <a href="{{route('history',$worker)}}" class="custom-button">ALL</a>
   </div>
 </div>
 
@@ -90,7 +95,29 @@
   cursor: pointer; /* Indicate clickability */
   border-radius: 5px; /* Rounded corners */
 }
+.hidden-buttons2 {
+  display: none; /* Initially hidden */
+}
 
+.hidden-buttons2 .custom-button {
+  /* Your desired styles for the hidden link buttons */
+  margin-top: 10px; /* Add spacing between buttons */
+}
+.hidden-buttons2 .custom-button {
+  /* Your desired styles for the hidden link buttons */
+  background-color: #007bff; /* Blue */
+  border: none;
+  color: white;
+  margin-left:5px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px; /* Add spacing between buttons */
+  cursor: pointer; /* Indicate clickability */
+  border-radius: 5px; /* Rounded corners */
+}
 </style>
 
 
@@ -98,12 +125,15 @@
     const orderButton = document.querySelector('.order-button');
 const hiddenButtons = document.querySelector('.hidden-buttons');
 const historyButton = document.querySelector('.history-button');
-
+const hiddenButtons2 = document.querySelector('.hidden-buttons2');
 orderButton.addEventListener('click', () => {
   hiddenButtons.style.display = 'flex'; /* Show the hidden buttons */
   historyButton.style.display = 'none'; /* Hide the History button */
 });
-
+historyButton.addEventListener('click', () => {
+  hiddenButtons2.style.display = 'flex'; /* Show the hidden buttons */
+  orderButton.style.display = 'none'; /* Hide the History button */
+});
 </script>
 
 

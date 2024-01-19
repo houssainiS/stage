@@ -147,13 +147,36 @@ $rn->update(['requests_number'=>$updated_requests_number]);
 return redirect()->route('request',['worker'=>$workerid])->with('success', 'Worker requested successfully!')->with('showAlert', true);
     }
 
+public function IThistory($worker){
+    $user=Worker::where('id',$worker)->first();
+    $data1=Itrequest::where('requestor_id',$worker)->get();
+   // $mergedData = $data1->concat($data2);
+   // $sortedData = $mergedData->sortBy('reference');
+   $requests_number=$data1->count();
+
+//dd($sortedData);
+    return view ('workersPage.ITworkerHistory',['worker'=>$worker,'data'=>$data1,'requests_number'=>$requests_number]);
+}
+
+public function SThistory($worker){
+    $user=Worker::where('id',$worker)->first();
+    $data2=Strequest::where('requestor_id',$worker)->get();
+
+    $requests_number=$data2->count();
+
+
+    return view ('workersPage.STworkerHistory',['worker'=>$worker,'data'=>$data2,'requests_number'=>$requests_number]);
+}
 public function history($worker){
+    $user=Worker::where('id',$worker)->first();
     $data1=Itrequest::where('requestor_id',$worker)->get();
     $data2=Strequest::where('requestor_id',$worker)->get();
     $mergedData = $data1->concat($data2);
-    $sortedData = $mergedData->sortBy('reference');
-//dd($mergedData);
-    return view ('workersPage.workerHistory',['worker'=>$worker,'data'=>$mergedData]);
+   $sortedData = $mergedData->sortBy('reference');
+   $requests_number=$user->requests_number;
+
+//dd($sortedData);
+    return view ('workersPage.workerHistory',['worker'=>$worker,'data'=>$sortedData,'requests_number'=>$requests_number]);
 }
 
 public function requestHistory($worker,$reference){
@@ -176,7 +199,7 @@ $foundItem = $mergedData->first(function ($item) use ($reference) {
         $rank=$user->rank;
         $department=$user->department;
         $now=$foundItem->created_at;
-
+        
 if ($foundItem) {
     
 } else {
@@ -190,7 +213,7 @@ if ($foundItem) {
 
 
     return view('workersPage.oneHistory',['worker'=>$worker,'name'=>$name,'lastname'=>$lastname,'id'=>$cin,'rank'=>$rank ,
-    'department'=>$department,'date'=>$now ,'order'=>$foundItem]) ;
+    'department'=>$department,'date'=>$now ,'order'=>$foundItem ]) ;
 }
 
 

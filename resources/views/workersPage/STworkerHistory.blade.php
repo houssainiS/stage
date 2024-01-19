@@ -14,7 +14,7 @@
   </nav>
 </header>
 
-<h1 align="center" style="margin-top: 30px;">Requests History</h1>
+<h1 align="center" style="margin-top: 30px;">Stationery Requests History</h1>
 <p>Number of requests: {{$requests_number}}</p>
 <table class="table mt-5">
 
