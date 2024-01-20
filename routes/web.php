@@ -46,5 +46,8 @@ Route::get('/DepartmentHead/{DH}/SThistory',[DHController::class,'SThistory'])->
 Route::get('/DepartmentHead/{DH}/history',[DhController::class,'history'])->name('DhHistory');
 Route::get('/DepartmentHead/{DH}/history/{request}',[DhController::class,'requestHistory'])->name('DHrequest.history');
 Route::get('/DepartmentHead/{DH}/approvals',[DhController::class,'approvals'])->name('DhApprovals');
+Route::get('/DepartmentHead/{DH}/approvals/waiting',[DhController::class,'waiting'])->name('waiting');
+Route::get('/DepartmentHead/{DH}/approvals/approve/{request}',[DhController::class,'DHapprove'])->name('DHapprove');
+Route::get('/DepartmentHead/{DH}/approvals/disapprove/{request}',[DhController::class,'DHdisapprove'])->name('DHdisapprove');
 // dh done
 //

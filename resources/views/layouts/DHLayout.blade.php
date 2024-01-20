@@ -20,7 +20,7 @@
 </header>
 
 
-
+@yield('DhWaiting')
 @yield('DhApproval')
 @yield('DHoneHistoryContent')
 @yield('DHhistoryContent')

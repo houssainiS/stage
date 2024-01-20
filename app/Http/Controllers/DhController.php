@@ -59,7 +59,7 @@ class DhController extends Controller
         $user=Worker::where('id',$workerid)->first();
         $itrequest = new ItRequest();
 $itrequest->requestor_id = $workerid;
-$itrequest->reference = $user->requests_number;
+$itrequest->reference =$user->requests_number;
 $itrequest->description1 = request('description1');
 $itrequest->description2 = request('description2');
 $itrequest->description3 = request('description3');
@@ -72,16 +72,16 @@ $itrequest->remarks1 = request('remarks1');
 $itrequest->remarks2 = request('remarks2');
 $itrequest->remarks3 = request('remarks3');
 $itrequest->remarks4 = request('remarks4');
-$itrequest->DH_approval = request('DH_approval')?? false; 
+$itrequest->DH_approval = "none"; 
 $itrequest->DH_approval_date = request('DH_approval_date') ;
-$itrequest->BOD1_approval = request('BOD1_approval') ?? false;
+$itrequest->BOD1_approval = "none";
 $itrequest->BOD1_approval_date = request('BOD1_approval_date');
-$itrequest->AMLC_approval = request('AMLC_approval')?? false;
+$itrequest->AMLC_approval = "none";
 $itrequest->AMLC_approval_date = request('AMLC_approval_date');
-$itrequest->AMLC_found = request('AMLC_found') ?? false;
+$itrequest->AMLC_found = "none";
 $itrequest->AMLC_found_date = request('AMLC_found_date');
 $itrequest->price = request('price');
-$itrequest->BOD2_approval = request('BOD2_approval')?? false;
+$itrequest->BOD2_approval = "none";
 $itrequest->BOD2_approval_date = request('BOD2_approval_date');
 $itrequest->IT_ST="IT";
 
@@ -119,20 +119,20 @@ return redirect()->route('DHrequest',['DH'=>$workerid])->with('success', 'Worker
         $strequest->remarks3 = request('remarks3');
         $strequest->remarks4 = request('remarks4');
         $strequest->signature =request('signature');
-        $strequest->DH_approval = request('DH_approval') ?? false;
+        $strequest->DH_approval = "none";
         $strequest->DH_approval_date = request('DH_approval_date');
-        $strequest->AMLC_approval = request('AMLC_approval') ?? false;
+        $strequest->AMLC_approval = "none";
         $strequest->AMLC_approval_date = request('AMLC_approval_date');
-        $strequest->BOD1_approval = request('BOD1_approval') ?? false;
+        $strequest->BOD1_approval = "none";
         $strequest->BOD1_approval_date = request('BOD1_approval_date');
-        $strequest->AMLC2_approval = request('AMLC2_approval') ?? false;
+        $strequest->AMLC2_approval = "none";
         $strequest->AMLC2_approval_date = request('AMLC2_approval_date');
-        $strequest->AMLC_found = request('AMLC_found') ?? false;
+        $strequest->AMLC_found = "none";
         $strequest->AMLC_found_date = request('AMLC_found_date');
         $strequest->price = request('price');
-        $strequest->BOD2_approval = request('BOD2_approval') ?? false;
+        $strequest->BOD2_approval = "none";
         $strequest->BOD2_approval_date = request('BOD2_approval_date');
-        $strequest->AMLC_bought = request('AMLC_bought') ?? false;
+        $strequest->AMLC_bought = "none";
         $strequest->AMLC_bought_date = request('AMLC_bought_date');
         $strequest->IT_ST="ST";
 
@@ -214,12 +214,59 @@ public function approvals($worker){
     return view('DHpage.DHapprovalsPage',['worker'=>$worker]);
 }
 
+public function waiting($worker){
+    $user=Worker::where('id',$worker)->first();
+    $department=$user->department;
+    
+    
+    if($user->department=="IT"){
+        $data1=Itrequest::where('DH_approval',"none")->get();
+        $requests_number=$data1->count();
+//dd($data1);
+    return view('DHpage.DHwaiting',['worker'=>$worker,'data'=>$data1,'requests_number'=>$requests_number,'department'=>$department]);
+    }
+    if($user->department=="Stationery"){
+        $data2=STrequest::where('DH_approval',"none")->get();
+  $requests_number=$data2->count();
 
-
-
-
-
-
-
-
+   return view('DHpage.DHwaiting',['worker'=>$worker,'data'=>$data2,'requests_number'=>$requests_number,'department'=>$department,]);
+   }
 }
+public function DHapprove($worker,$reference){
+    $user=Worker::where('id',$worker)->first();
+    $data1=Itrequest::where('reference',$reference)->first();
+    $data2=Strequest::where('reference',$reference)->first();
+    if($user->department=="Stationery"){
+    $data2->DH_approval="True";
+    $data2->save();
+        return to_route('waiting',[$worker]);
+  }
+  if($user->department=="IT"){
+    $data1->DH_approval="True";
+    $data1->save();
+        return to_route('waiting',[$worker]);
+  }
+}
+
+public function DHdisapprove($worker,$reference){
+    $user=Worker::where('id',$worker)->first();
+    $data1=Itrequest::where('reference',$reference)->first();
+    $data2=Strequest::where('reference',$reference)->first();
+    if($user->department=="Stationery"){
+    $data2->DH_approval="False";
+    $data2->save();
+        return to_route('waiting',[$worker]);
+  }
+  if($user->department=="IT"){
+    $data1->DH_approval="False";
+    $data1->save();
+        return to_route('waiting',[$worker]);
+  }
+}
+}
+
+
+
+
+
+
