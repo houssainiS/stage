@@ -62,7 +62,7 @@ class WorkerController extends Controller
         $user=Worker::where('id',$workerid)->first();
         $itrequest = new ItRequest();
 $itrequest->requestor_id = $workerid;
-$itrequest->reference = $user->requests_number;
+$itrequest->reference = $workerid ."-". $user->requests_number;
 $itrequest->description1 = request('description1');
 $itrequest->description2 = request('description2');
 $itrequest->description3 = request('description3');
