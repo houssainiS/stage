@@ -59,7 +59,7 @@ class DhController extends Controller
         $user=Worker::where('id',$workerid)->first();
         $itrequest = new ItRequest();
 $itrequest->requestor_id = $workerid;
-$itrequest->reference =$user->requests_number;
+$itrequest->reference =$workerid ."-".$user->requests_number;
 $itrequest->description1 = request('description1');
 $itrequest->description2 = request('description2');
 $itrequest->description3 = request('description3');
@@ -223,13 +223,14 @@ public function waiting($worker){
         $data1=Itrequest::where('DH_approval',"none")->get();
         $requests_number=$data1->count();
 //dd($data1);
-    return view('DHpage.DHwaiting',['worker'=>$worker,'data'=>$data1,'requests_number'=>$requests_number,'department'=>$department]);
+    return view('DHpage.Dhwaiting',['worker'=>$worker,'data'=>$data1,'requests_number'=>$requests_number,'department'=>$department]);
     }
     if($user->department=="Stationery"){
         $data2=STrequest::where('DH_approval',"none")->get();
+//dd($data2);
   $requests_number=$data2->count();
 
-   return view('DHpage.DHwaiting',['worker'=>$worker,'data'=>$data2,'requests_number'=>$requests_number,'department'=>$department,]);
+   return view('DHpage.Dhwaiting',['worker'=>$worker,'data'=>$data2,'requests_number'=>$requests_number,'department'=>$department,]);
    }
 }
 public function DHapprove($worker,$reference){
@@ -239,12 +240,12 @@ public function DHapprove($worker,$reference){
     if($user->department=="Stationery"){
     $data2->DH_approval="True";
     $data2->save();
-        return to_route('waiting',[$worker]);
+        return to_route('DhWaiting',[$worker]);
   }
   if($user->department=="IT"){
     $data1->DH_approval="True";
     $data1->save();
-        return to_route('waiting',[$worker]);
+        return to_route('DhWaiting',[$worker]);
   }
 }
 
@@ -255,13 +256,31 @@ public function DHdisapprove($worker,$reference){
     if($user->department=="Stationery"){
     $data2->DH_approval="False";
     $data2->save();
-        return to_route('waiting',[$worker]);
+        return to_route('DhWaiting',[$worker]);
   }
   if($user->department=="IT"){
     $data1->DH_approval="False";
     $data1->save();
-        return to_route('waiting',[$worker]);
+        return to_route('DhWaiting',[$worker]);
   }
+}
+public function DHapproved($worker){
+    $user=Worker::where('id',$worker)->first();
+    $department=$user->department;
+    
+    
+    if($user->department=="IT"){
+        $data3=Itrequest::where('DH_approval', '!=',"none")->get();
+        $requests_number=$data3->count();
+//dd($data1);
+    return view('DHpage.DHapproved',['worker'=>$worker,'data'=>$data3,'requests_number'=>$requests_number,'department'=>$department]);
+    }
+    if($user->department=="Stationery"){
+        $data4=STrequest::where('DH_approval', '!=',"none")->get();
+  $requests_number=$data4->count();
+
+   return view('DHpage.DHapproved',['worker'=>$worker,'data'=>$data4,'requests_number'=>$requests_number,'department'=>$department,]);
+   }
 }
 }
 

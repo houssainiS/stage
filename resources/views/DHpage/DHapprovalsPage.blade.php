@@ -4,8 +4,8 @@
 
 <div class="container">
         <!-- Two buttons -->
-      <a href="{{route('waiting',$worker)}}"><button>Waiting to approve</button></a>  
-     <a href=""><button>Approved</button></a>   
+      <a href="{{route('DhWaiting',$worker)}}"><button>Waiting to approve</button></a>  
+     <a href="{{route('DHapproved',$worker)}}"><button>Approved</button></a>   
     </div>
 <style>
         /* Center the container using flexbox */
