@@ -173,40 +173,64 @@ return redirect()->route('DHrequest',['DH'=>$workerid])->with('success', 'Worker
         return view ('DHpage.DhHistory',['worker'=>$worker,'data'=>$sortedData,'requests_number'=>$requests_number]);
     }
     public function requestHistory($worker,$reference){
-        $user=Worker::where('id',$worker)->first();
-        $data1=Itrequest::where('requestor_id',$worker)->get();
-        $data2=Strequest::where('requestor_id',$worker)->get();
-        $mergedData = $data1->concat($data2);
+     $user=Worker::where('id',$worker)->first();
+     if($user->department=="IT"){
+         $data1=Itrequest::where('reference',$reference)->first();
+         $user2=Worker::where('id',$data1->requestor_id)->first();
+         $now=$data1->created_at;
+         $name=$user2->name;
+            $lastname=$user2->last_name;
+            $cin=$user2->cin;
+            $rank=$user2->rank;
+            $department=$user2->department;
+         return view('DHpage.DHoneHistory',['worker'=>$worker,'name'=>$name,'lastname'=>$lastname,'id'=>$cin,'rank'=>$rank ,
+        'department'=>$department,'date'=>$now ,'order'=>$data1 ]) ;
+        
+     }else{
+        $data2=Strequest::where('reference',$reference)->first();
+        $user2=Worker::where('id',$data2->requestor_id)->first();
+        $now=$data2->created_at;
+        $name=$user2->name;
+            $lastname=$user2->last_name;
+            $cin=$user2->cin;
+            $rank=$user2->rank;
+            $department=$user2->department;
+        return view('DHpage.DHoneHistory',['worker'=>$worker,'name'=>$name,'lastname'=>$lastname,'id'=>$cin,'rank'=>$rank ,
+        'department'=>$department,'date'=>$now ,'order'=>$data2 ]) ;
+     }
+       
+        
+        //dd($data1);
+      //  $referenceToFind = $reference; // Replace with the actual reference value you're looking for
     
-        $referenceToFind = $reference; // Replace with the actual reference value you're looking for
-    
-    $foundItem = $mergedData->first(function ($item) use ($reference) {
-        return $item->reference == $reference;
-    });
+   // $foundItem = $mergedData->first(function ($item) use ($reference) {
+    //    return $item->reference == $reference;
+   // });
     
     //dd($foundItem);
     
-            $name=$user->name;
-            $lastname=$user->last_name;
-            $cin=$user->cin;
-            $rank=$user->rank;
-            $department=$user->department;
-            $now=$foundItem->created_at;
+           // $name=$user2->name;
+          //  $lastname=$user2->last_name;
+           // $cin=$user2->cin;
+          //  $rank=$user2->rank;
+           // $department=$user2->department;
+            //dd($foundItem);
+            //$now=$foundItem->created_at;
             
-    if ($foundItem) {
+  //  if ($foundItem) {
         
-    } else {
+   // } else {
         // Item not found
-        abort(404);
-    }
+     //   abort(404);
+   // }
         //dd($oneOrder);
         
     
     
     
     
-        return view('DHpage.DHoneHistory',['worker'=>$worker,'name'=>$name,'lastname'=>$lastname,'id'=>$cin,'rank'=>$rank ,
-        'department'=>$department,'date'=>$now ,'order'=>$foundItem ]) ;
+        //return view('DHpage.DHoneHistory',['worker'=>$worker,'name'=>$name,'lastname'=>$lastname,'id'=>$cin,'rank'=>$rank ,
+        //'department'=>$department,'date'=>$now ,'order'=>$foundItem ]) ;
     }
 
 
