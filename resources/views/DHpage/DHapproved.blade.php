@@ -15,6 +15,7 @@
       <th scope="col">type</th>
       <th scope="col">date</th>
       <th scope="col">approval</th>
+      <th scope="col">approval Date</th>
     </tr>
   </thead>
   <tbody>
@@ -30,10 +31,14 @@
       <p style="color:lime">Approved</p>
       @elseif(($item->DH_approval == "False") )
       <p style="color:red">Disapproved</p> 
-      @endif
-      @endif
-</div>
+      </div>
 </td>
+      @endif
+      <td>
+        {{$item->DH_approval_date}}
+      </td>
+      @endif
+
     </tr>
    @endforeach
   </tbody>

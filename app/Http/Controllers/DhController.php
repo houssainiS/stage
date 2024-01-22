@@ -264,10 +264,14 @@ public function DHapprove($worker,$reference){
     if($user->department=="Stationery"){
     $data2->DH_approval="True";
     $data2->save();
+    $data2->DH_approval_date=$data2->updated_at->format('Y-m-d H:i:s');
+    $data2->save();
         return to_route('DhWaiting',[$worker]);
   }
   if($user->department=="IT"){
     $data1->DH_approval="True";
+    $data1->save();
+    $data1->DH_approval_date=$data1->updated_at->format('Y-m-d H:i:s');
     $data1->save();
         return to_route('DhWaiting',[$worker]);
   }
@@ -280,10 +284,14 @@ public function DHdisapprove($worker,$reference){
     if($user->department=="Stationery"){
     $data2->DH_approval="False";
     $data2->save();
+    $data2->DH_approval_date=$data2->updated_at->format('Y-m-d H:i:s');
+    $data2->save();
         return to_route('DhWaiting',[$worker]);
   }
   if($user->department=="IT"){
     $data1->DH_approval="False";
+    $data1->save();
+    $data1->DH_approval_date=$data1->updated_at->format('Y-m-d H:i:s');
     $data1->save();
         return to_route('DhWaiting',[$worker]);
   }
