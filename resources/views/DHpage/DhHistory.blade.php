@@ -25,7 +25,13 @@
       <td><a href="{{route('DHrequest.history',[$worker,$item->reference])}}" class="">{{$item->description1}}</a></td>
       <td>{{$item->IT_ST}}</td>
       <td>{{$item->created_at}}</td>
-      <td>waiting</td>
+      <td> @if($item->DH_approval == "True") 
+      <p style="color:lime">Approved</p>
+      @elseif(($item->DH_approval == "False") )
+      <p style="color:red">Disapproved</p> </td>
+      @else
+      <p>waiting</p>
+      @endif
     </tr>
    @endforeach
   </tbody>
