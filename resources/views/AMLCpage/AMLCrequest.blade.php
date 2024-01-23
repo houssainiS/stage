@@ -1,6 +1,6 @@
 @extends('layouts.AMLCLayout')
 @section('title')AMLC @endsection
-@section('AMLCContent')
+@section('AMLCrequestContent')
 
 
 
@@ -24,13 +24,16 @@
     <button class="history-button">history</button>
   </div>
   <div class="hidden-buttons">
-    <a href="{{route('DHITrequest.order',$worker)}}" class="custom-button">IT</a>
-    <a href="{{route('DHSTrequest.order',$worker)}}" class="custom-button">Stationary</a>
+    <a href="{{route('AMLCITrequest.order',$worker)}}" class="custom-button">IT</a>
+    <a href="{{route('AMLCSTrequest.order',$worker)}}" class="custom-button">Stationary</a>
   </div>
   <div class="hidden-buttons2">
-    <a href="{{route('DhIThistory',$worker)}}" class="custom-button">IT</a>
-    <a href="{{route('DhSThistory',$worker)}}" class="custom-button">Stationary</a>
-    <a href="{{route('DhHistory',$worker)}}" class="custom-button">ALL</a>
+    <a href="" class="custom-button">IT</a>
+    <a href="" class="custom-button">Stationary</a>
+    <a href="" class="custom-button">ALL</a>
+        <!-- route('AMLCIThistory',$worker)}}
+            route('AMLCSThistory',$worker)}}
+            href="route('AMLCHistory',$worker)}}" -->
   </div>
 </div>
 

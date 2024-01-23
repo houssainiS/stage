@@ -1,6 +1,7 @@
-@extends('layouts.DHLayout')
-@section('title')request @endsection
-@section('ITamlcRequestPageContent')
+@extends('layouts.AMLCLayout')
+@section('title')AMLC @endsection
+@section('AMLCitRContent')
+
 
 
 

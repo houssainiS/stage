@@ -1,6 +1,6 @@
-@extends('layouts.DHLayout')
-@section('title')request @endsection
-@section('ITamlcRequestPageContent')
+@extends('layouts.AMLCLayout')
+@section('title')AMLC @endsection
+@section('AMLCitRContent')
 
 
 
@@ -27,9 +27,9 @@
 <br>
 
 
-<form  method="post" action="{{route('DHSTrequestStore.store',$worker)}}">
+<form  method="post" action="{{route('AMLCITrequestStore.store',$worker)}}">
 @csrf
-<h2 class="test" align="center">TO / Stationery DPT</h2>
+<h2 class="test" align="center">TO / IT DPT</h2>
     <!-- Add more fields as needed -->
 
     <table border=1>

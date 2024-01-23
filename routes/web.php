@@ -63,4 +63,7 @@ Route::get('/DAF/{daf}/aboutme',[DafController::class,'aboutmeDAF'])->name('abou
 Route::get('/AMLC/{amlc}',[AmlcController::class,'goAMLC'])->name('goAMLC');
 Route::get('/AMLC/{amlc}/aboutme',[AmlcController::class,'aboutme'])->name('aboutmeAMLC');
 Route::get('/AMLC/{amlc}/request',[AmlcController::class,'request'])->name('AMLCrequest');
-
+Route::get('/AMLC/{amlc}/request/order/IT',[AmlcController::class,'ITrequestOrder'])->name('AMLCITrequest.order');
+Route::get('/AMLC/{amlc}/request/order/Stationary',[AmlcController::class,'STrequestOrder'])->name('AMLCSTrequest.order');
+Route::post('/DepartmentHead/{amlc}/request/order/IT/store',[AmlcController::class,'ITrequestStore'])->name(name: 'AMLCITrequestStore.store');
+Route::post('/AMLC/{amlc}/request/order/ST/store',[AmlcController::class,'STrequestStore'])->name(name: 'AMLCSTrequestStore.store');
