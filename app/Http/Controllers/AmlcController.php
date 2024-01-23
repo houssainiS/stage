@@ -100,7 +100,7 @@ $rn= Worker::find($workerid);
 $old_requests_number =$rn->requests_number;
 $updated_requests_number=$old_requests_number+1;
 $rn->update(['requests_number'=>$updated_requests_number]);
-return redirect()->route('AMLCrequest',['DH'=>$workerid])->with('success', 'Worker requested successfully!')->with('showAlert', true);
+return redirect()->route('AMLCrequest',['amlc'=>$workerid])->with('success', 'Worker requested successfully!')->with('showAlert', true);
     }
 
     
@@ -144,7 +144,7 @@ $rn= Worker::find($workerid);
 $old_requests_number =$rn->requests_number;
 $updated_requests_number=$old_requests_number+1;
 $rn->update(['requests_number'=>$updated_requests_number]);
-return redirect()->route('AMLCrequest',['AMLC'=>$workerid])->with('success', 'Worker requested successfully!')->with('showAlert', true);
+return redirect()->route('AMLCrequest',['amlc'=>$workerid])->with('success', 'Worker requested successfully!')->with('showAlert', true);
     }
 
 

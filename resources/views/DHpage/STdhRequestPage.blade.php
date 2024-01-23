@@ -1,6 +1,6 @@
 @extends('layouts.DHLayout')
 @section('title')request @endsection
-@section('ITamlcRequestPageContent')
+@section('ITdhRequestPageContent')
 
 
 
