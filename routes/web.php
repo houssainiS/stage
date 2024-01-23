@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\WorkerController;
 use App\Http\Controllers\DhController;
 use App\Http\Controllers\DafController;
+use App\Http\Controllers\AmlcController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,4 +58,8 @@ Route::get('/DepartmentHead/{DH}/historyall/{request}',[DhController::class,'DHr
 //DAF 
 Route::get('/DAF/{daf}',[DafController::class,'goDAF'])->name('goDAF');
 Route::get('/DAF/{daf}/aboutme',[DafController::class,'aboutmeDAF'])->name('aboutmeDAF');
-//
+//////
+//Asset managment and logistic coordinator
+Route::get('/AMLC/{amlc}',[AmlcController::class,'goAMLC'])->name('goAMLC');
+Route::get('/AMLC/{amlc}/aboutme',[AmlcController::class,'aboutme'])->name('aboutmeAMLC');
+

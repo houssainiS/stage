@@ -29,6 +29,9 @@ class LoginController extends Controller
     }
     if($rank=="DAF"){
         return redirect()->route('goDAF',$user->id)->with('success', 'Worker registered successfully!')->with('showalert', true);
+    }
+    if($rank=="Asset managment and logistic coordinator"){
+        return redirect()->route('goAMLC',$user->id)->with('success', 'Worker registered successfully!')->with('showalert', true);
     }else{
         return redirect()->route('goWorker',$user->id)->with('success', 'Worker registered successfully!')->with('showalert', true);
     }
