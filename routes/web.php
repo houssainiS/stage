@@ -6,6 +6,7 @@ use App\Http\Controllers\WorkerController;
 use App\Http\Controllers\DhController;
 use App\Http\Controllers\DafController;
 use App\Http\Controllers\AmlcController;
+use App\Http\Controllers\BodController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,3 +73,13 @@ Route::get('/AMLC/{amlc}/SThistory',[AmlcController::class,'SThistory'])->name('
 Route::get('/AMLC/{amlc}/history',[AmlcController::class,'history'])->name('AMLCHistory');
 Route::get('/AMLC/{amlc}/history/{request}',[AmlcController::class,'AMLConeHistory'])->name('AMLConeHistory.history');
 Route::get('/AMLC/{amlc}/approvals',[AmlcController::class,'approvals'])->name('AMLCapprovals');
+
+
+
+
+////////
+//BOD
+Route::get('/BOD/{bod}',[BodController::class,'goBOD'])->name('goBOD');
+Route::get('/BOD/{bod}/aboutme',[BODController::class,'aboutme'])->name('aboutmeBOD');
+Route::get('/BOD/{bod}/request',[BODController::class,'request'])->name('BODrequest');
+
