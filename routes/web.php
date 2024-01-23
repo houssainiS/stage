@@ -54,4 +54,5 @@ Route::get('/DepartmentHead/{DH}/approvals/disapprove/{request}',[DhController::
 Route::get('/DepartmentHead/{DH}/historyall/{request}',[DhController::class,'DHrequestHistory'])->name('DHrequestall.history');
 // dh done
 Route::get('/DAF/{daf}',[DafController::class,'goDAF'])->name('goDAF');
+Route::get('/DAF/{daf}/aboutme',[DafController::class,'aboutmeDAF'])->name('aboutmeDAF');
 //

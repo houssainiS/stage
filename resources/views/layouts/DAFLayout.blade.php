@@ -13,7 +13,7 @@
     <ul>
       <li class="mid"><a href="">Approvals</a></li>
       <li><a href="">request</a></li>
-      <li><a href="">about me</a></li>
+      <li><a href="{{route('aboutmeDAF',$worker)}}">about me</a></li>
       <li><a href="">logout</a></li>
     </ul>
   </nav>
