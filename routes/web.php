@@ -75,11 +75,16 @@ Route::get('/AMLC/{amlc}/history/{request}',[AmlcController::class,'AMLConeHisto
 Route::get('/AMLC/{amlc}/approvals',[AmlcController::class,'approvals'])->name('AMLCapprovals');
 
 
-
-
 ////////
 //BOD
 Route::get('/BOD/{bod}',[BodController::class,'goBOD'])->name('goBOD');
-Route::get('/BOD/{bod}/aboutme',[BODController::class,'aboutme'])->name('aboutmeBOD');
-Route::get('/BOD/{bod}/request',[BODController::class,'request'])->name('BODrequest');
+Route::get('/BOD/{bod}/aboutme',[BodController::class,'aboutme'])->name('aboutmeBOD');
+Route::get('/BOD/{bod}/request',[BodController::class,'request'])->name('BODrequest');
+Route::get('/BOD/{bod}/request/order/IT',[BodController::class,'ITrequestOrder'])->name('BODITrequest.order');
+Route::get('/BOD/{bod}/request/order/Stationary',[BodController::class,'STrequestOrder'])->name('BODSTrequest.order');
+Route::post('/BOD/{bod}/request/order/IT/store',[BodController::class,'ITrequestStore'])->name(name: 'BODITrequestStore.store');
+Route::post('/BOD/{bod}/request/order/ST/store',[BodController::class,'STrequestStore'])->name(name: 'BODSTrequestStore.store');
+Route::get('/BOD/{bod}/IThistory',[bodController::class,'IThistory'])->name('BODIThistory');
+Route::get('/BOD/{bod}/SThistory',[bodController::class,'SThistory'])->name('BODSThistory');
+Route::get('/BOD/{bod}/history',[BodController::class,'history'])->name('BODHistory');
 

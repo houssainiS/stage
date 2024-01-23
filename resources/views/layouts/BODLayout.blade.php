@@ -19,6 +19,11 @@
   </nav>
 </header>
 
+
+@yield('BODhistoryContent')
+@yield('BODhContent')
+@yield('BODstRContent')
+@yield('BODitRContent')
 @yield('BODrequestContent')
 @yield('BODContent')
 @yield('BODwelcomeContent')

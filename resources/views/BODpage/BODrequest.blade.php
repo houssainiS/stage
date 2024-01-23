@@ -24,13 +24,13 @@
     <button class="history-button">history</button>
   </div>
   <div class="hidden-buttons">
-    <a href="{{route('AMLCITrequest.order',$worker)}}" class="custom-button">IT</a>
-    <a href="{{route('AMLCSTrequest.order',$worker)}}" class="custom-button">Stationary</a>
+    <a href="{{route('BODITrequest.order',$worker)}}" class="custom-button">IT</a>
+    <a href="{{route('BODSTrequest.order',$worker)}}" class="custom-button">Stationary</a>
   </div>
   <div class="hidden-buttons2">
-    <a href="{{route('AMLCIThistory',$worker)}}" class="custom-button">IT</a>
-    <a href="{{route('AMLCSThistory',$worker)}}" class="custom-button">Stationary</a>
-    <a href="{{route('AMLCHistory',$worker)}}" class="custom-button">ALL</a>
+    <a href="{{route('BODIThistory',$worker)}}" class="custom-button">IT</a>
+    <a href="{{route('BODSThistory',$worker)}}" class="custom-button">Stationary</a>
+    <a href="{{route('BODHistory',$worker)}}" class="custom-button">ALL</a>
   </div>
 </div>
 
