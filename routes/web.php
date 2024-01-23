@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\WorkerController;
 use App\Http\Controllers\DhController;
+use App\Http\Controllers\DafController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,6 +52,6 @@ Route::get('/DepartmentHead/{DH}/approvals/approved/',[DhController::class,'DHap
 Route::get('/DepartmentHead/{DH}/approvals/approve/{request}',[DhController::class,'DHapprove'])->name('DHapprove');
 Route::get('/DepartmentHead/{DH}/approvals/disapprove/{request}',[DhController::class,'DHdisapprove'])->name('DHdisapprove');
 Route::get('/DepartmentHead/{DH}/historyall/{request}',[DhController::class,'DHrequestHistory'])->name('DHrequestall.history');
-
 // dh done
+Route::get('/DAF/{daf}',[DafController::class,'goDAF'])->name('goDAF');
 //
