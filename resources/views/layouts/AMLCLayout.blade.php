@@ -19,7 +19,7 @@
   </nav>
 </header>
 
-
+@yield('AMLConeContent')
 @yield('AMLChistoryContent')
 @yield('AMLChContent')
 @yield('AMLCstRContent')
