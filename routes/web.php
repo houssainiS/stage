@@ -62,4 +62,5 @@ Route::get('/DAF/{daf}/aboutme',[DafController::class,'aboutmeDAF'])->name('abou
 //Asset managment and logistic coordinator
 Route::get('/AMLC/{amlc}',[AmlcController::class,'goAMLC'])->name('goAMLC');
 Route::get('/AMLC/{amlc}/aboutme',[AmlcController::class,'aboutme'])->name('aboutmeAMLC');
+Route::get('/AMLC/{amlc}/request',[AmlcController::class,'request'])->name('AMLCrequest');
 

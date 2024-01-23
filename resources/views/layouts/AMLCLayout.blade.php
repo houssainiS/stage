@@ -12,7 +12,7 @@
   <nav>
     <ul>
       <li class="mid"><a href="">Approvals</a></li>
-      <li><a href="">request</a></li>
+      <li><a href="{{route('AMLCrequest',$worker)}}">request</a></li>
       <li><a href="{{route('aboutmeAMLC',$worker)}}">about me</a></li>
       <li><a href="{{route('welcome')}}">logout</a></li>
     </ul>

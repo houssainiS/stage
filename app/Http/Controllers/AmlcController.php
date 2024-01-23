@@ -31,4 +31,7 @@ class AmlcController extends Controller
         return view('AMLCpage.aboutme',['worker'=>$worker,'username'=>$username,'name'=>$name,'lastname'=>$lastname,'email'=>$email,
         'age'=>$age,'phone'=>$phone,'rank'=>$rank,'department'=>$department,'requests_number'=>$requests_number,'id'=>$cin,]);
     }
+    public function request($worker){
+        return view ('AMLCpage.AMLCrequest',['worker'=>$worker]);
+    }
 }
