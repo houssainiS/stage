@@ -102,7 +102,13 @@
         <label for="image-upload">Done !</label>
         </td>
         <td align="center">
-        waiting
+        @if($order->DH_approval == "True") 
+      <p style="color:lime">Approved</p>
+      @elseif(($order->DH_approval == "False") )
+      <p style="color:red">Disapproved</p> </td>
+      @else
+      <p>waiting</p>
+      @endif
         </td>
       </tr>
      </table>
