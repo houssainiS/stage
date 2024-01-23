@@ -84,7 +84,8 @@ Route::get('/BOD/{bod}/request/order/IT',[BodController::class,'ITrequestOrder']
 Route::get('/BOD/{bod}/request/order/Stationary',[BodController::class,'STrequestOrder'])->name('BODSTrequest.order');
 Route::post('/BOD/{bod}/request/order/IT/store',[BodController::class,'ITrequestStore'])->name(name: 'BODITrequestStore.store');
 Route::post('/BOD/{bod}/request/order/ST/store',[BodController::class,'STrequestStore'])->name(name: 'BODSTrequestStore.store');
-Route::get('/BOD/{bod}/IThistory',[bodController::class,'IThistory'])->name('BODIThistory');
-Route::get('/BOD/{bod}/SThistory',[bodController::class,'SThistory'])->name('BODSThistory');
+Route::get('/BOD/{bod}/IThistory',[BodController::class,'IThistory'])->name('BODIThistory');
+Route::get('/BOD/{bod}/SThistory',[BodController::class,'SThistory'])->name('BODSThistory');
 Route::get('/BOD/{bod}/history',[BodController::class,'history'])->name('BODHistory');
+Route::get('/BOD/{bod}/history/{request}',[BODController::class,'BODoneHistory'])->name('BODoneHistory.history');
 

@@ -19,7 +19,7 @@
   </nav>
 </header>
 
-
+@yield('BODoneContent')
 @yield('BODhistoryContent')
 @yield('BODhContent')
 @yield('BODstRContent')
