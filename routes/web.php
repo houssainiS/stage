@@ -71,3 +71,4 @@ Route::get('/AMLC/{amlc}/IThistory',[AmlcController::class,'IThistory'])->name('
 Route::get('/AMLC/{amlc}/SThistory',[AmlcController::class,'SThistory'])->name('AMLCSThistory');
 Route::get('/AMLC/{amlc}/history',[AmlcController::class,'history'])->name('AMLCHistory');
 Route::get('/AMLC/{amlc}/history/{request}',[AmlcController::class,'AMLConeHistory'])->name('AMLConeHistory.history');
+Route::get('/AMLC/{amlc}/approvals',[AmlcController::class,'approvals'])->name('AMLCapprovals');

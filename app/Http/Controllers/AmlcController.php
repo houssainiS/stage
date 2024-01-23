@@ -219,6 +219,9 @@ return redirect()->route('AMLCrequest',['amlc'=>$workerid])->with('success', 'Wo
         'department'=>$department,'date'=>$now ,'order'=>$foundItem , "dep"=>$dep]) ;
     }
 
+    public function approvals($worker){
+        return view('AMLCpage.AMLCapprovalsPage',['worker'=>$worker]);
+    }
 
 
 
