@@ -69,3 +69,4 @@ Route::post('/AMLC/{amlc}/request/order/IT/store',[AmlcController::class,'ITrequ
 Route::post('/AMLC/{amlc}/request/order/ST/store',[AmlcController::class,'STrequestStore'])->name(name: 'AMLCSTrequestStore.store');
 Route::get('/AMLC/{amlc}/IThistory',[AmlcController::class,'IThistory'])->name('AMLCIThistory');
 Route::get('/AMLC/{amlc}/SThistory',[AmlcController::class,'SThistory'])->name('AMLCSThistory');
+Route::get('/AMLC/{amlc}/history',[AmlcController::class,'history'])->name('AMLCHistory');

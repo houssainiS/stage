@@ -165,6 +165,20 @@ return redirect()->route('AMLCrequest',['amlc'=>$workerid])->with('success', 'Wo
         return view ('AMLCpage.STamlcHistory',['worker'=>$worker,'data'=>$data2,'requests_number'=>$requests_number]);
     }
 
+    public function history($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data1=Itrequest::where('requestor_id',$worker)->get();
+        $data2=Strequest::where('requestor_id',$worker)->get();
+        $mergedData = $data1->concat($data2);
+       $sortedData = $mergedData->sortBy('reference');
+       $requests_number=$user->requests_number;
+    
+    //dd($sortedData);
+        return view ('AMLCpage.AMLCHistory',['worker'=>$worker,'data'=>$sortedData,'requests_number'=>$requests_number]);
+    }
+
+
+
 
 
 }

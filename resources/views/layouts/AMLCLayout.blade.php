@@ -20,6 +20,7 @@
 </header>
 
 
+@yield('AMLChistoryContent')
 @yield('AMLChContent')
 @yield('AMLCstRContent')
 @yield('ITamlcRequestPageContent')

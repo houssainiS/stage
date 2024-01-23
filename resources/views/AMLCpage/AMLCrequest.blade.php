@@ -30,10 +30,7 @@
   <div class="hidden-buttons2">
     <a href="{{route('AMLCIThistory',$worker)}}" class="custom-button">IT</a>
     <a href="{{route('AMLCSThistory',$worker)}}" class="custom-button">Stationary</a>
-    <a href="" class="custom-button">ALL</a>
-        <!-- 
-            
-            href="route('AMLCHistory',$worker)}}" -->
+    <a href="{{route('AMLCHistory',$worker)}}" class="custom-button">ALL</a>
   </div>
 </div>
 
