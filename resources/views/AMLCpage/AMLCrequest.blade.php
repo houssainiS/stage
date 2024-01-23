@@ -28,11 +28,11 @@
     <a href="{{route('AMLCSTrequest.order',$worker)}}" class="custom-button">Stationary</a>
   </div>
   <div class="hidden-buttons2">
-    <a href="" class="custom-button">IT</a>
-    <a href="" class="custom-button">Stationary</a>
+    <a href="{{route('AMLCIThistory',$worker)}}" class="custom-button">IT</a>
+    <a href="{{route('AMLCSThistory',$worker)}}" class="custom-button">Stationary</a>
     <a href="" class="custom-button">ALL</a>
-        <!-- route('AMLCIThistory',$worker)}}
-            route('AMLCSThistory',$worker)}}
+        <!-- 
+            
             href="route('AMLCHistory',$worker)}}" -->
   </div>
 </div>

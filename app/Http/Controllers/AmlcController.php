@@ -147,5 +147,24 @@ $rn->update(['requests_number'=>$updated_requests_number]);
 return redirect()->route('AMLCrequest',['amlc'=>$workerid])->with('success', 'Worker requested successfully!')->with('showAlert', true);
     }
 
+    public function IThistory($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data1=Itrequest::where('requestor_id',$worker)->get();
+       $requests_number=$data1->count();
+    
+
+        return view ('AMLCpage.ITamlcHistory',['worker'=>$worker,'data'=>$data1,'requests_number'=>$requests_number]);
+    }
+    public function SThistory($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data2=Strequest::where('requestor_id',$worker)->get();
+    
+        $requests_number=$data2->count();
+    
+    
+        return view ('AMLCpage.STamlcHistory',['worker'=>$worker,'data'=>$data2,'requests_number'=>$requests_number]);
+    }
+
+
 
 }

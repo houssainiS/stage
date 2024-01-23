@@ -67,3 +67,5 @@ Route::get('/AMLC/{amlc}/request/order/IT',[AmlcController::class,'ITrequestOrde
 Route::get('/AMLC/{amlc}/request/order/Stationary',[AmlcController::class,'STrequestOrder'])->name('AMLCSTrequest.order');
 Route::post('/AMLC/{amlc}/request/order/IT/store',[AmlcController::class,'ITrequestStore'])->name(name: 'AMLCITrequestStore.store');
 Route::post('/AMLC/{amlc}/request/order/ST/store',[AmlcController::class,'STrequestStore'])->name(name: 'AMLCSTrequestStore.store');
+Route::get('/AMLC/{amlc}/IThistory',[AmlcController::class,'IThistory'])->name('AMLCIThistory');
+Route::get('/AMLC/{amlc}/SThistory',[AmlcController::class,'SThistory'])->name('AMLCSThistory');

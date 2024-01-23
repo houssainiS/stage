@@ -19,6 +19,8 @@
   </nav>
 </header>
 
+
+@yield('AMLChContent')
 @yield('AMLCstRContent')
 @yield('ITamlcRequestPageContent')
 @yield('AMLCrequestContent')
