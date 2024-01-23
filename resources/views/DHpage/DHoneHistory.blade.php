@@ -102,7 +102,7 @@
         <label for="image-upload">Done !</label>
         </td>
         <td align="center">
-          @if($order->DH_approval=="none")
+          @if($order->DH_approval=="none" && $order->IT_ST==$dep)
           <div style="display:inline;">
       <a href="{{route('DHapprove',[$worker,$order->reference])}}"><button type="button" class="btn btn-success">Approve</button></a>
       <a href="{{route('DHdisapprove',[$worker,$order->reference])}}"><button type="button" class="btn btn-danger">Disapprove</button></a>
@@ -110,6 +110,8 @@
       <p>Approved</p>
       @elseif(($order->DH_approval == "False") )
       <p>Disapproved</p> 
+      @else
+      <p>waiting</p>
       @endif
         </td>
       </tr>

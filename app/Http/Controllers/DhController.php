@@ -175,6 +175,12 @@ return redirect()->route('DHrequest',['DH'=>$workerid])->with('success', 'Worker
     public function requestHistory($worker,$reference){
      $user=Worker::where('id',$worker)->first();
      if($user->department=="IT"){
+        $dep="IT";
+    }
+    if($user->department=="Stationery"){
+        $dep="ST";
+    }
+     if($user->department=="IT"){
          $data1=Itrequest::where('reference',$reference)->first();
          $user2=Worker::where('id',$data1->requestor_id)->first();
          $now=$data1->created_at;
@@ -183,8 +189,9 @@ return redirect()->route('DHrequest',['DH'=>$workerid])->with('success', 'Worker
             $cin=$user2->cin;
             $rank=$user2->rank;
             $department=$user2->department;
+            
          return view('DHpage.DHoneHistory',['worker'=>$worker,'name'=>$name,'lastname'=>$lastname,'id'=>$cin,'rank'=>$rank ,
-        'department'=>$department,'date'=>$now ,'order'=>$data1 ]) ;
+        'department'=>$department,'date'=>$now ,'order'=>$data1, "dep"=>$dep ]) ;
         
      }else{
         $data2=Strequest::where('reference',$reference)->first();
@@ -195,8 +202,9 @@ return redirect()->route('DHrequest',['DH'=>$workerid])->with('success', 'Worker
             $cin=$user2->cin;
             $rank=$user2->rank;
             $department=$user2->department;
+            
         return view('DHpage.DHoneHistory',['worker'=>$worker,'name'=>$name,'lastname'=>$lastname,'id'=>$cin,'rank'=>$rank ,
-        'department'=>$department,'date'=>$now ,'order'=>$data2 ]) ;
+        'department'=>$department,'date'=>$now ,'order'=>$data2 , "dep"=>$dep]) ;
      }
        
         
@@ -314,6 +322,58 @@ public function DHapproved($worker){
    return view('DHpage.DHapproved',['worker'=>$worker,'data'=>$data4,'requests_number'=>$requests_number,'department'=>$department,]);
    }
 }
+public function DHrequestHistory($worker,$reference){
+    $user=Worker::where('id',$worker)->first();
+    $data1=Itrequest::where('requestor_id',$worker)->get();
+    $data2=Strequest::where('requestor_id',$worker)->get();
+    $mergedData = $data1->concat($data2);
+
+    $referenceToFind = $reference; // Replace with the actual reference value you're looking for
+
+$foundItem = $mergedData->first(function ($item) use ($reference) {
+    return $item->reference == $reference;
+});
+
+//dd($foundItem);
+
+        $name=$user->name;
+        $lastname=$user->last_name;
+        $cin=$user->cin;
+        $rank=$user->rank;
+        $department=$user->department;
+        $now=$foundItem->created_at;
+        
+if ($foundItem) {
+    
+} else {
+    // Item not found
+    abort(404);
+}
+    //dd($oneOrder);
+    //dd($user->department);
+if($user->department=="IT"){
+    $dep="IT";
+}
+if($user->department=="Stationery"){
+    $dep="ST";
+}
+
+
+
+    return view('DHpage.DHoneHistory',['worker'=>$worker,'name'=>$name,'lastname'=>$lastname,'id'=>$cin,'rank'=>$rank ,
+    'department'=>$department,'date'=>$now ,'order'=>$foundItem , "dep"=>$dep]) ;
+}
+
+
+
+
+
+
+
+
+
+
+
 }
 
 

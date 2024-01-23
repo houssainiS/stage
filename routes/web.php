@@ -50,6 +50,7 @@ Route::get('/DepartmentHead/{DH}/approvals/waiting',[DhController::class,'waitin
 Route::get('/DepartmentHead/{DH}/approvals/approved/',[DhController::class,'DHapproved'])->name('DHapproved');
 Route::get('/DepartmentHead/{DH}/approvals/approve/{request}',[DhController::class,'DHapprove'])->name('DHapprove');
 Route::get('/DepartmentHead/{DH}/approvals/disapprove/{request}',[DhController::class,'DHdisapprove'])->name('DHdisapprove');
+Route::get('/DepartmentHead/{DH}/historyall/{request}',[DhController::class,'DHrequestHistory'])->name('DHrequestall.history');
 
 // dh done
 //
