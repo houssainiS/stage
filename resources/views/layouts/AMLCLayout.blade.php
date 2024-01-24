@@ -11,7 +11,7 @@
   <a href="{{route('goAMLC',$worker)}}" class="welcome">Welcome</a>
   <nav>
     <ul>
-      <li class="mid"><a href="{{route('AMLCapprovals',$worker)}}">Work</a></li>
+      <li class="mid"><a href="{{route('AMLCwork',$worker)}}">Work</a></li>
       <li><a href="{{route('AMLCrequest',$worker)}}">request</a></li>
       <li><a href="{{route('aboutmeAMLC',$worker)}}">about me</a></li>
       <li><a href="{{route('welcome')}}">logout</a></li>
