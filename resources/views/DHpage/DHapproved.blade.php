@@ -23,7 +23,7 @@
     <tr>
     @if($item->DH_approval == "True" || $item->DH_approval == "False")
       <th scope="row">{{$item->reference}}</th>
-      <td><a href="{{route('DHrequest.history',[$worker,$item->reference])}}" class="">{{$item->description1}}</a></td>
+      <td><a href="{{route('DHrequest.history',[$worker,$item->reference])}}" class="">{{ substr($item->description1, 0, 40) }}</a></td>
       <td>{{$item->IT_ST}}</td>
       <td>{{$item->created_at}}</td>
       <td>
