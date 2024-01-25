@@ -228,12 +228,88 @@ return redirect()->route('AMLCrequest',['amlc'=>$workerid])->with('success', 'Wo
         $user=Worker::where('id',$worker)->first();
         $data = STrequest::where('AMLC_approval', 'none')
         ->where('DH_approval', 'True')
+        ->where('AMLC_found','none')
         ->get();
             $requests_number=$data->count();
     //dd($data1);
         return view('AMLCpage.STreqToApprove',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
        
 
+    }
+
+    public function AMLCSTapprove($worker,$reference){
+        //$user=Worker::where('id',$worker)->first();
+        $data=Strequest::where('reference',$reference)->first();
+        $data->AMLC_approval="True";
+        $data->save();
+        $data->AMLC_approval_date=$data->updated_at->format('Y-m-d H:i:s');
+        $data->save();
+            return to_route('AMLCwork.STrequests',[$worker]);
+      
+      
+    }
+    public function AMLCSTdisapprove($worker,$reference){
+        //$user=Worker::where('id',$worker)->first();
+        $data=Strequest::where('reference',$reference)->first();
+        $data->AMLC_approval="False";
+        $data->save();
+        $data->AMLC_approval_date=$data->updated_at->format('Y-m-d H:i:s');
+        $data->save();
+            return to_route('AMLCwork.STrequests',[$worker]);
+      
+      
+    }
+    public function AMLCSTfound($worker,$reference){
+        //$user=Worker::where('id',$worker)->first();
+        $data=Strequest::where('reference',$reference)->first();
+        $data->AMLC_found="True";
+        $data->save();
+        $data->AMLC_found_date=$data->updated_at->format('Y-m-d H:i:s');
+        $data->save();
+            return to_route('AMLCwork.STrequests',[$worker]);
+      
+      
+    }
+
+    public function AMLConeRequest($worker,$reference){
+        $data1=Itrequest::where('reference',$reference)->get();
+        $data2=Strequest::where('reference',$reference)->get();
+        $mergedData = $data1->concat($data2);
+        
+        $referenceToFind = $reference; // Replace with the actual reference value you're looking for
+    
+    $foundItem = $mergedData->first(function ($item) use ($reference) {
+        return $item->reference == $reference;
+    });
+    $user=Worker::where('id',$foundItem->requestor_id)->first();
+    //dd($foundItem);
+    
+            $name=$user->name;
+            $lastname=$user->last_name;
+            $cin=$user->cin;
+            $rank=$user->rank;
+            $department=$user->department;
+            $now=$foundItem->created_at;
+            
+    if ($foundItem) {
+        
+    } else {
+        // Item not found
+        abort(404);
+    }
+        //dd($oneOrder);
+        //dd($user->department);
+    if($user->department=="IT"){
+        $dep="IT";
+    }
+    if($user->department=="Stationery"){
+        $dep="ST";
+    }
+    
+    
+    
+        return view('AMLCpage.AMLConeRequest',['worker'=>$worker,'name'=>$name,'lastname'=>$lastname,'id'=>$cin,'rank'=>$rank ,
+        'department'=>$department,'date'=>$now ,'order'=>$foundItem , "dep"=>$dep]) ;
     }
 
 

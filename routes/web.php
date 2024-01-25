@@ -74,6 +74,10 @@ Route::get('/AMLC/{amlc}/history',[AmlcController::class,'history'])->name('AMLC
 Route::get('/AMLC/{amlc}/history/{request}',[AmlcController::class,'AMLConeHistory'])->name('AMLConeHistory.history');
 Route::get('/AMLC/{amlc}/work',[AmlcController::class,'work'])->name('AMLCwork');
 Route::get('/AMLC/{amlc}/work/requests',[AmlcController::class,'STrequestsToApprove'])->name('AMLCwork.STrequests');
+Route::get('/AMLC/{amlc}/work/requests/approve/{reference}',[AmlcController::class,'AMLCSTapprove'])->name('AMLCwork.STapprove');
+Route::get('/AMLC/{amlc}/work/requests/disapprove/{reference}',[AmlcController::class,'AMLCSTdisapprove'])->name('AMLCwork.STdisapprove');
+Route::get('/AMLC/{amlc}/work/requests/found/{reference}',[AmlcController::class,'AMLCSTfound'])->name('AMLCwork.STfound');
+Route::get('/AMLC/{amlc}/work/requests/check/{reference}',[AmlcController::class,'AMLConeRequest'])->name('AMLCwork.oneRequest');
 
 ////////
 //BOD
@@ -88,4 +92,3 @@ Route::get('/BOD/{bod}/IThistory',[BodController::class,'IThistory'])->name('BOD
 Route::get('/BOD/{bod}/SThistory',[BodController::class,'SThistory'])->name('BODSThistory');
 Route::get('/BOD/{bod}/history',[BodController::class,'history'])->name('BODHistory');
 Route::get('/BOD/{bod}/history/{request}',[BODController::class,'BODoneHistory'])->name('BODoneHistory.history');
-
