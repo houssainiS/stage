@@ -317,5 +317,16 @@ return redirect()->route('AMLCrequest',['amlc'=>$workerid])->with('success', 'Wo
        
 
     }
+    public function STrequestsPrSent($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data = STrequest::where('AMLC_approval','True')
+        ->where('AMLC_found', 'none')
+        ->get();
+            $requests_number=$data->count();
+    //dd($data1);
+        return view('AMLCpage.STreqPrSent',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
+       
+
+    }
 
 }

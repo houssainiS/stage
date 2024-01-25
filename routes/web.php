@@ -79,6 +79,7 @@ Route::get('/AMLC/{amlc}/work/STrequests/disapprove/{reference}',[AmlcController
 Route::get('/AMLC/{amlc}/work/STrequests/found/{reference}',[AmlcController::class,'AMLCSTfound'])->name('AMLCwork.STfound');
 Route::get('/AMLC/{amlc}/work/requests/check/{reference}',[AmlcController::class,'AMLConeRequest'])->name('AMLCwork.oneRequest');
 Route::get('/AMLC/{amlc}/work/found-in-the-stock',[AmlcController::class,'STrequestsFoundInStock'])->name('AMLCwork.STrequestsFoundInStock');
+Route::get('/AMLC/{amlc}/work/PR-sent',[AmlcController::class,'STrequestsPrSent'])->name('AMLCwork.STrequestsPrSent');
 
 ////////
 //BOD

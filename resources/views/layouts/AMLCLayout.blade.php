@@ -19,7 +19,7 @@
   </nav>
 </header>
 
-
+@yield('AMLCstPrSent')
 @yield('AMLCstReqfoundInStockContent')
 @yield('AMLConeRequestContent')
 @yield('AMLCstReqToApproveContent')
