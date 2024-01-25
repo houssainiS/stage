@@ -20,6 +20,7 @@
 </header>
 
 
+@yield('AMLCstReqfoundInStockContent')
 @yield('AMLConeRequestContent')
 @yield('AMLCstReqToApproveContent')
 @yield('AMLCapprovalContent')

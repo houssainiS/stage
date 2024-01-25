@@ -73,11 +73,12 @@ Route::get('/AMLC/{amlc}/SThistory',[AmlcController::class,'SThistory'])->name('
 Route::get('/AMLC/{amlc}/history',[AmlcController::class,'history'])->name('AMLCHistory');
 Route::get('/AMLC/{amlc}/history/{request}',[AmlcController::class,'AMLConeHistory'])->name('AMLConeHistory.history');
 Route::get('/AMLC/{amlc}/work',[AmlcController::class,'work'])->name('AMLCwork');
-Route::get('/AMLC/{amlc}/work/requests',[AmlcController::class,'STrequestsToApprove'])->name('AMLCwork.STrequests');
-Route::get('/AMLC/{amlc}/work/requests/approve/{reference}',[AmlcController::class,'AMLCSTapprove'])->name('AMLCwork.STapprove');
-Route::get('/AMLC/{amlc}/work/requests/disapprove/{reference}',[AmlcController::class,'AMLCSTdisapprove'])->name('AMLCwork.STdisapprove');
-Route::get('/AMLC/{amlc}/work/requests/found/{reference}',[AmlcController::class,'AMLCSTfound'])->name('AMLCwork.STfound');
+Route::get('/AMLC/{amlc}/work/STrequests',[AmlcController::class,'STrequestsToApprove'])->name('AMLCwork.STrequests');
+Route::get('/AMLC/{amlc}/work/STrequests/approve/{reference}',[AmlcController::class,'AMLCSTapprove'])->name('AMLCwork.STapprove');
+Route::get('/AMLC/{amlc}/work/STrequests/disapprove/{reference}',[AmlcController::class,'AMLCSTdisapprove'])->name('AMLCwork.STdisapprove');
+Route::get('/AMLC/{amlc}/work/STrequests/found/{reference}',[AmlcController::class,'AMLCSTfound'])->name('AMLCwork.STfound');
 Route::get('/AMLC/{amlc}/work/requests/check/{reference}',[AmlcController::class,'AMLConeRequest'])->name('AMLCwork.oneRequest');
+Route::get('/AMLC/{amlc}/work/found-in-the-stock',[AmlcController::class,'STrequestsFoundInStock'])->name('AMLCwork.STrequestsFoundInStock');
 
 ////////
 //BOD

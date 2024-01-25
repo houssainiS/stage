@@ -299,18 +299,23 @@ return redirect()->route('AMLCrequest',['amlc'=>$workerid])->with('success', 'Wo
     }
         //dd($oneOrder);
         //dd($user->department);
-    if($user->department=="IT"){
-        $dep="IT";
-    }
-    if($user->department=="Stationery"){
-        $dep="ST";
-    }
+
     
     
     
         return view('AMLCpage.AMLConeRequest',['worker'=>$worker,'name'=>$name,'lastname'=>$lastname,'id'=>$cin,'rank'=>$rank ,
-        'department'=>$department,'date'=>$now ,'order'=>$foundItem , "dep"=>$dep]) ;
+        'department'=>$department,'date'=>$now ,'order'=>$foundItem ,]) ;
     }
+    
+    public function STrequestsFoundInStock($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data = STrequest::where('AMLC_found','True')
+        ->get();
+            $requests_number=$data->count();
+    //dd($data1);
+        return view('AMLCpage.STreqFoundInStock',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
+       
 
+    }
 
 }

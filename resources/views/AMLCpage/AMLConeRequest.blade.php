@@ -111,7 +111,7 @@
       </tr>
      </table>
      <br>
-     @if($order->AMLC_approval == "none") 
+     @if($order->AMLC_approval == "none" && $order->AMLC_found =="none") 
      <div class="text-center">
     <div style="display:inline;">
         <a href="{{ route('AMLCwork.STapprove', [$worker, $order->reference]) }}">
