@@ -50,7 +50,7 @@
 
     <div class="right-container">
         <h3 align ="center">Stationary</h3>
-        <a href="#" class="button">requests</a>
+        <a href="{{route('AMLCwork.STrequests',$worker)}}" class="button">requests</a>
         <a href="#" class="button">requests searched in the stock</a>
         <a href="#" class="button">Purchase requisition sent</a>
         <a href="#" class="button">searching for item</a>

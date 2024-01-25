@@ -224,5 +224,17 @@ return redirect()->route('AMLCrequest',['amlc'=>$workerid])->with('success', 'Wo
     }
 
 
+    public function STrequestsToApprove($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data = STrequest::where('AMLC_approval', 'none')
+        ->where('DH_approval', 'True')
+        ->get();
+            $requests_number=$data->count();
+    //dd($data1);
+        return view('AMLCpage.STreqToApprove',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
+       
+
+    }
+
 
 }
