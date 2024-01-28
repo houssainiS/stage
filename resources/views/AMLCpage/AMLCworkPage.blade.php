@@ -37,6 +37,27 @@
             background-color: #0056b3; /* Adjust color as needed */
             color:white;
         }
+        .midB{
+            margin:100px 600px 20px 600px;
+        }
+        .mid-button{
+            float: center;
+            display: block;
+            width: 200 px;
+            padding: 10px;
+            margin-bottom: 10px ; /* Top, Right, Bottom, Left */
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            background-color: #32cd32; /* Adjust color as needed */
+            border: 1px solid lime; /* Adjust color as needed */
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .mid-button:hover {
+            background-color: lime; /* Adjust color as needed */
+            color:white;
+        }
     </style>
 
 
@@ -58,5 +79,10 @@
         <a href="#" class="button">Confirmed to supplier</a>
         <a href="#" class="button">Ensure the Payment</a>
     </div>
+    <div class="midB">
+        <a href="" class="mid-button">Create Purchase requisition</a>
+        <a href="{{route('AMLCwork.STrequestsPrSent',$worker)}}" class="mid-button">Purchase sent</a>
 
+    </div>
+    
 @endsection
