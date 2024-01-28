@@ -18,7 +18,7 @@
     </ul>
   </nav>
 </header>
-
+@yield('PRformContent')
 @yield('AMLCstPrSent')
 @yield('AMLCstReqfoundInStockContent')
 @yield('AMLConeRequestContent')

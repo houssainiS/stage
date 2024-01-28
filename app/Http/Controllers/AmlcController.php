@@ -330,8 +330,9 @@ return redirect()->route('AMLCrequest',['amlc'=>$workerid])->with('success', 'Wo
     }
 
     public function PRform($worker){
-
-        return view('AMLCpage.PRform',['worker'=>$worker]);
+        $date=now();
+        $user=Worker::where('id',$worker)->first();
+        return view('AMLCpage.PRform',['worker'=>$worker,'date'=>$date,'name'=>$user->name,'rank'=>$user->rank]);
     }
 
 }
