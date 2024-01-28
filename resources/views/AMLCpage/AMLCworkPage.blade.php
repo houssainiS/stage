@@ -73,15 +73,15 @@
         <h3 align ="center">Stationary</h3>
         <a href="{{route('AMLCwork.STrequests',$worker)}}" class="button">requests</a>
         <a href="{{route('AMLCwork.STrequestsFoundInStock',$worker)}}" class="button">requests found in the stock</a>
-        <a href="{{route('AMLCwork.STrequestsPrSent',$worker)}}" class="button">Purchase requisition sent</a>
+        <a href="{{route('AMLCwork.requestsPrSent',$worker)}}" class="button">Purchase requisition sent</a>
         <a href="#" class="button">searching for item</a>
         <a href="#" class="button">PRICE+PR sent to BOD</a>
         <a href="#" class="button">Confirmed to supplier</a>
         <a href="#" class="button">Ensure the Payment</a>
     </div>
     <div class="midB">
-        <a href="" class="mid-button">Create Purchase requisition</a>
-        <a href="{{route('AMLCwork.STrequestsPrSent',$worker)}}" class="mid-button">Purchase sent</a>
+        <a href="{{route('AMLCwork.PRform',$worker)}}" class="mid-button">Create Purchase requisition</a>
+        <a href="{{route('AMLCwork.requestsPrSent',$worker)}}" class="mid-button">Purchase sent</a>
 
     </div>
     
