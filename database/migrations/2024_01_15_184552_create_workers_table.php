@@ -25,6 +25,7 @@ return new class extends Migration
         $table->string('rank_code');
         $table->string('department');
         $table->integer('requests_number');
+        $table->integer('pr_number');
         $table->timestamps();
         });
     }

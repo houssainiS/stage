@@ -84,6 +84,7 @@ public function registerStore()
     $worker->rank_code = $rank_code;
     $worker->department = $department;
     $worker->requests_number=0;
+    $worker->pr_number=0;
 
     try {
         $worker->save();

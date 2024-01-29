@@ -2,6 +2,9 @@
 @section('title')AMLC @endsection
 @section('PRformContent')
 
+<form  method="post" action="{{route('AMLCwork.PRformStore',$worker)}}">
+@csrf
+
 <br>
 <table class="dates" border=1><tr>
   <td>
@@ -30,8 +33,6 @@
 <br>
 
 
-<form  method="post" action="">
-@csrf
 
 
     <table border=1 align="center" style="margin-right:600px;">
@@ -53,7 +54,7 @@
         <td colspan=6 style="background-color:#b4cfec;">Explanation (regarding the reasons of the request etc. )</td>
     </tr>
     <tr>
-    <td colspan=6><textarea name="" id="" cols="130" rows="5"></textarea></td>
+    <td colspan=6><textarea name="explanation" id="" cols="137" rows="5"></textarea></td>
     </tr>
     <tr>
         <td>
@@ -61,7 +62,7 @@
         <td style="background-color:#b4cfec;">Requested by</td>
         <td style="background-color:#b4cfec;">Direct Supervisor</td>
         <td style="background-color:#b4cfec;">Head of Department Approval</td>
-        <td colspan=2 style="background-color:#b4cfec;">Board Of Director Approval</td>
+        <td colspan=2 style="background-color:#b4cfec;" align="center">Board Of Director Approval</td>
     </tr>
     <tr>
         <td>Name:

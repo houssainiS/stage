@@ -7,6 +7,7 @@ use App\Models\Worker;
 use App\Models\User;
 use App\Models\Itrequest;
 use App\Models\Strequest;
+use App\Models\Pr;
 
 class AmlcController extends Controller
 {
@@ -333,6 +334,60 @@ return redirect()->route('AMLCrequest',['amlc'=>$workerid])->with('success', 'Wo
         $date=now();
         $user=Worker::where('id',$worker)->first();
         return view('AMLCpage.PRform',['worker'=>$worker,'date'=>$date,'name'=>$user->name,'rank'=>$user->rank]);
+    }
+
+    public function PRformStore($worker){
+        $user = Worker::where('id', $worker)->first();
+
+if ($user) {
+    $user->increment('pr_number'); // Increment pr_number by 1
+}
+
+        $pr = new Pr();
+        
+        $pr->PR_reference = $user->id."-".$user->pr_number;
+        $pr->sentBy = $user->id;
+        $pr->PR_line_id=0;
+        $pr->PR_id = $user->pr_number;
+        $pr->project_name = request('project_name');
+        $pr->project_code =request('project_code');
+        $pr->PR_reference = request('reference');
+        $pr->division_name = request('division_name');
+        $pr->cost_center = request('cost_center');
+        $pr->direct_supervisor =request('direct_supervisor');
+        $pr->direct_supervisor_signature = request('direct_supervisor_signature');
+        $pr->DH = request('DH');
+        $pr->BOD1 = request('BOD1');
+        $pr->BOD2 = request('BOD2');
+        $pr->BOD1_signature = request('BOD1_signature');
+        $pr->BOD2_signature = request('BOD2_signature');
+        $pr->executive_director = request('executive_director');
+        $pr->executive_director2 = request('executive_director2');
+        $pr->approval_date = request('approval_date');
+        $pr->explanation = request('explanation');
+        $pr->save();
+        ///////////
+        
+        for($i=1;$i<35;$i++){
+            $description = request('DESCRIPTION' . $i);
+            //dd($description);
+            if($description!=null){
+                $pr = new Pr;
+                $pr->PR_line_id=$i;
+                $pr->PR_id = $user->pr_number;
+                $pr->description = request('DESCRIPTION'.$i);
+                $pr->quantity = request('QUANTITY'.$i);
+                $pr->unit = request('UNIT'.$i);
+                $pr->SRDR = request('SRDR'.$i);
+                $pr->GCR = request('GCR'.$i);
+                $pr->save();
+            }
+            
+        }
+        
+        // give all the lines same id by using request number
+
+        return redirect()->route('AMLCwork', ['amlc' => $worker])->with('success', 'PR sent successfully!')->with('showAlert', true);
     }
 
 }
