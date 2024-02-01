@@ -11,16 +11,22 @@
   <a href="{{route('goDAF',$worker)}}" class="welcome">Welcome</a>
   <nav>
     <ul>
-      <li class="mid"><a href="">Approvals</a></li>
-      <li><a href="">request</a></li>
+      <li class="mid"><a href="{{route('DAFwork',$worker)}}">Work</a></li>
+      <li><a href="{{route('DAFrequest',$worker)}}">request</a></li>
       <li><a href="{{route('aboutmeDAF',$worker)}}">about me</a></li>
       <li><a href="{{route('welcome')}}">logout</a></li>
     </ul>
   </nav>
 </header>
 
-
+@yield('DAFworkContent')
+@yield('DAFhistoryContent')
+@yield('DAFoneContent')
+@yield('DAFrequestContent')
+@yield('DAFitRContent')
+@yield('DAFstRContent')
 @yield('DAFContent')
+@yield('DAFhContent')
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

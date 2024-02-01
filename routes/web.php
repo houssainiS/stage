@@ -59,6 +59,16 @@ Route::get('/DepartmentHead/{DH}/historyall/{request}',[DhController::class,'DHr
 //DAF 
 Route::get('/DAF/{daf}',[DafController::class,'goDAF'])->name('goDAF');
 Route::get('/DAF/{daf}/aboutme',[DafController::class,'aboutmeDAF'])->name('aboutmeDAF');
+Route::get('/DAF/{daf}/request',[DafController::class,'request'])->name('DAFrequest');
+Route::get('/DAF/{daf}/request/order/IT',[DafController::class,'ITrequestOrder'])->name('DAFITrequest.order');
+Route::get('/DAF/{daf}/request/order/Stationary',[DafController::class,'STrequestOrder'])->name('DAFSTrequest.order');
+Route::post('/DAF/{daf}/request/order/IT/store',[DafController::class,'ITrequestStore'])->name(name: 'DAFITrequestStore.store');
+Route::post('/DAF/{daf}/request/order/ST/store',[DafController::class,'STrequestStore'])->name(name: 'DAFSTrequestStore.store');
+Route::get('/DAF/{daf}/IThistory',[DafController::class,'IThistory'])->name('DAFIThistory');
+Route::get('/DAF/{daf}/SThistory',[DafController::class,'SThistory'])->name('DAFSThistory');
+Route::get('/DAF/{daf}/history',[DafController::class,'history'])->name('DAFHistory');
+Route::get('/DAF/{daf}/history/{request}',[DafController::class,'DAFoneHistory'])->name('DAFoneHistory.history');
+Route::get('DAF/{daf}/work',[DafController::class,'work'])->name('DAFwork');
 //////
 //Asset managment and logistic coordinator
 Route::get('/AMLC/{amlc}',[AmlcController::class,'goAMLC'])->name('goAMLC');
