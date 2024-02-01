@@ -18,6 +18,9 @@
     </ul>
   </nav>
 </header>
+
+
+@yield('onePrContent')
 @yield('PRformContent')
 @yield('AMLCstPrSent')
 @yield('AMLCstReqfoundInStockContent')

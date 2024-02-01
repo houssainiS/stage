@@ -11,24 +11,18 @@
     <tr>
       <th scope="col">Reference</th>
       <th scope="col">description</th>
-      <th scope="col">type</th>
       <th scope="col">Rrquest date</th>
-      <th scope="col">DH approval date</th>
-      <th scope="col">AMLC approval date</th>
       <th scope="col">approval</th>
     </tr>
   </thead>
   <tbody>
   @foreach($data as $item)
     <tr>
-      <th scope="row">{{$item->reference}}</th>
-      <td><a href="{{route('AMLCwork.oneRequest',[$worker,$item->reference])}}" class="">{{ substr($item->description1, 0, 40) }}</a></td>
-      <td>{{$item->IT_ST}}</td>
+      <th scope="row">{{$item->PR_id}}</th>
+      <td><a href="{{route('AMLCwork.onePr',[$worker,$item->PR_id])}}" class="">{{ substr($item->project_name, 0, 40) }}</a></td>
       <td>{{$item->created_at}}</td>
-      <td>{{$item->DH_approval_date}}</td>
-      <td>{{$item->AMLC_approval_date}}</td>
       <td>
-    <p>Sent !</p>
+    <p>Waiting</p>
 </div>
 </td>
     </tr>

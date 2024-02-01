@@ -320,8 +320,7 @@ return redirect()->route('AMLCrequest',['amlc'=>$workerid])->with('success', 'Wo
     }
     public function requestsPrSent($worker){
         $user=Worker::where('id',$worker)->first();
-        $data = STrequest::where('AMLC_approval','True')
-        ->where('AMLC_found', 'none')
+        $data = Pr::where('sentBy',$worker)
         ->get();
             $requests_number=$data->count();
     //dd($data1);
@@ -390,4 +389,8 @@ if ($user) {
         return redirect()->route('AMLCwork', ['amlc' => $worker])->with('success', 'PR sent successfully!')->with('showAlert', true);
     }
 
+    public function onePr($worker,$PR_id){
+        return view ('AMLCpage.onePR',['worker'=> $worker,'PR_id'=>$PR_id]);
+
+    }
 }

@@ -82,6 +82,7 @@ Route::get('/AMLC/{amlc}/work/found-in-the-stock',[AmlcController::class,'STrequ
 Route::get('/AMLC/{amlc}/work/PR-sent',[AmlcController::class,'requestsPrSent'])->name('AMLCwork.requestsPrSent');
 Route::get('/AMLC/{amlc}/work/PR',[AmlcController::class,'PRform'])->name('AMLCwork.PRform');
 Route::post('/AMLC/{amlc}/work/PR/store',[AmlcController::class,'PRformStore'])->name('AMLCwork.PRformStore');
+Route::get('/AMLC/{amlc}/work/PR/{PR_id}',[AmlcController::class,'onePr'])->name('AMLCwork.onePr');
 
 ////////
 //BOD
