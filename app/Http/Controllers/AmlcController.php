@@ -390,7 +390,11 @@ if ($user) {
     }
 
     public function onePr($worker,$PR_id){
-        return view ('AMLCpage.onePR',['worker'=> $worker,'PR_id'=>$PR_id]);
+        $user=Worker::where('id',$worker)->first();
+        $data=Pr::where('PR_id',$PR_id)->get();
+        //dd($data);
+
+        return view ('AMLCpage.onePR',['worker'=> $worker,'PR_id'=>$PR_id,'user'=>$user,'data'=>$data]);
 
     }
 }

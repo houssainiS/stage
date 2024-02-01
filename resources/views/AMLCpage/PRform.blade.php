@@ -44,7 +44,7 @@
         <tr>
             <td>{{$i}}</td>
             <td><input type="text" name="{{'DESCRIPTION'.$i}}"></td>
-            <td><input type="text" name="{{'QUANTITY'.$i}}"></td>
+            <td><input type="number" name="{{'QUANTITY'.$i}}"></td>
             <td><input type="text" name="{{'UNIT'.$i}}"></td>
             <td><input type="text" name="{{'SRDR'.$i}}"></td>
             <td><input type="text" name="{{'GCR'.$i}}"></td>
