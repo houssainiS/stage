@@ -19,7 +19,7 @@
   @if($item->DAF_approval == "True" || $item->DAF_approval == "False" )
     <tr>
       <th scope="row">{{$item->PR_id}}</th>
-      <td><a href="" class="">{{ substr($item->project_name, 0, 40) }}</a></td>
+      <td><a href="{{route('DAFwork.onePr',[$worker,$item->PR_id])}}" class="">{{ substr($item->project_name, 0, 40) }}</a></td>
       <td>{{$item->created_at}}</td>
       <td>
       @if($item->DAF_approval == "True") 

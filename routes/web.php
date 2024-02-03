@@ -73,6 +73,7 @@ Route::get('DAF/{daf}/work/approve',[DafController::class,'approve'])->name('DAF
 Route::get('DAF/{daf}/work/approve/PR/done',[DafController::class,'approved'])->name('DAFwork.approved');
 Route::get('DAF/{daf}/work/approve/PR/{reference}',[DafController::class,'approvePR'])->name('DAFwork.approvePR');
 Route::get('DAF/{daf}/work/disapprove/PR/{reference}',[DafController::class,'disapprovePR'])->name('DAFwork.disapprovePR');
+Route::get('DAF/{daf}/work/PR/{PR_id}',[DafController::class,'onePr'])->name('DAFwork.onePr');
 
 //////
 //Asset managment and logistic coordinator

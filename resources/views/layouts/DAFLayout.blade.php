@@ -19,6 +19,7 @@
   </nav>
 </header>
 
+@yield('DAFoneRContent')
 @yield('DAFapproveContent')
 @yield('DAFworkContent')
 @yield('DAFhistoryContent')

@@ -234,7 +234,7 @@ return redirect()->route('DAFrequest',['daf'=>$workerid])->with('success', 'Work
         $data = Pr::where('PR_line_id',0)
         ->get();
             $requests_number=$data->count();
-    //dd($data1);
+    //dd($data);
         return view('DAFpage.approve',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
        
 
@@ -270,6 +270,14 @@ return redirect()->route('DAFrequest',['daf'=>$workerid])->with('success', 'Work
         ->get();
             $requests_number=$data->count();
         return view('DAFpage.approved',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number]);
+    }
+
+    public function onePr($worker,$PR_id){
+        $user=Worker::where('id',$worker)->first();
+        $data=Pr::where('PR_id',$PR_id)->get();
+
+        return view ('DAFpage.DAFoneRequest',['worker'=> $worker,'PR_id'=>$PR_id,'user'=>$user,'data'=>$data]);
+
     }
 
 }
