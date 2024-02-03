@@ -37,6 +37,8 @@ return new class extends Migration
             $table->string('SRDR')->nullable();
             $table->string('GCR')->nullable();
             $table->string('explanation')->nullable();
+            $table->string('DAF_approval')->nullable();
+            $table->string('DAF_approval_date')->nullable();
             $table->timestamps();
         });
     }

@@ -7,6 +7,7 @@ use App\Models\Worker;
 use App\Models\User;
 use App\Models\Itrequest;
 use App\Models\Strequest;
+use App\Models\Pr;
 
 class DafController extends Controller
 {
@@ -227,6 +228,16 @@ return redirect()->route('DAFrequest',['daf'=>$workerid])->with('success', 'Work
         return view('DAFpage.work',['worker'=>$worker]);
     }
 
+    
+    public function approve($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data = Pr::where('PR_line_id',0)
+        ->get();
+            $requests_number=$data->count();
+    //dd($data1);
+        return view('DAFpage.approve',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
+       
 
+    }
 
 }

@@ -32,6 +32,8 @@ class Pr extends Model
         'unit',
         'SRDR',
         'GCR',
-        'explanation'
+        'explanation',
+        'DAF_approval_date',
+        'DAF_approval'
     ];
 }

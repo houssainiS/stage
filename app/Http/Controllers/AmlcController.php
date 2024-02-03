@@ -364,6 +364,7 @@ if ($user) {
         $pr->executive_director2 = request('executive_director2');
         $pr->approval_date = request('approval_date');
         $pr->explanation = request('explanation');
+        $pr->DAF_approval = 'none';
         $pr->save();
         ///////////
         

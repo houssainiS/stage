@@ -19,6 +19,7 @@
   </nav>
 </header>
 
+@yield('DAFapproveContent')
 @yield('DAFworkContent')
 @yield('DAFhistoryContent')
 @yield('DAFoneContent')
@@ -58,7 +59,7 @@ nav li {
   padding: 0.5em;
 }
 .mid{
-  margin-right:500px;
+  margin-right:600px;
 }
 nav li a {
   text-decoration: none;
