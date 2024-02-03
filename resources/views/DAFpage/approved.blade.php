@@ -2,7 +2,7 @@
 @section('title') DAF @endsection
 @section('DAFapproveContent')
 
-<h1 align="center" style="margin-top: 30px;">Purchase requisition waiting for approval</h1>
+<h1 align="center" style="margin-top: 30px;">Purchase requisition</h1>
 <p>Number of requests: {{$requests_number}}</p>
 <table class="table mt-5">
 
@@ -16,20 +16,16 @@
   </thead>
   <tbody>
   @foreach($data as $item)
-  @if($item->DAF_approval == "none" && $item->PR_line_id==0)
+  @if($item->DAF_approval == "True" || $item->DAF_approval == "False" )
     <tr>
       <th scope="row">{{$item->PR_id}}</th>
       <td><a href="" class="">{{ substr($item->project_name, 0, 40) }}</a></td>
       <td>{{$item->created_at}}</td>
       <td>
-    @if($item->DAF_approval == "none")  
-      <div style="display:inline;">
-      <a href="{{route('DAFwork.approvePR',[$worker,$item->id])}}"><button type="button" class="btn btn-success">Approve</button></a>
-      <a href="{{route('DAFwork.disapprovePR',[$worker,$item->id])}}"><button type="button" class="btn btn-danger">Disapprove</button></a>
-      @elseif($item->DAF_approval == "True") 
-      <p>Approved</p>
+      @if($item->DAF_approval == "True") 
+      <p style="color:lime;">Approved</p>
       @elseif(($item->DAF_approval == "False") )
-      <p>Disapproved</p> 
+      <p style="color:red;">Disapproved</p> 
       @endif
   @endif
 </div>

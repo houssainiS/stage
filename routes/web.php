@@ -70,6 +70,10 @@ Route::get('/DAF/{daf}/history',[DafController::class,'history'])->name('DAFHist
 Route::get('/DAF/{daf}/history/{request}',[DafController::class,'DAFoneHistory'])->name('DAFoneHistory.history');
 Route::get('DAF/{daf}/work',[DafController::class,'work'])->name('DAFwork');
 Route::get('DAF/{daf}/work/approve',[DafController::class,'approve'])->name('DAFwork.approve');
+Route::get('DAF/{daf}/work/approve/PR/done',[DafController::class,'approved'])->name('DAFwork.approved');
+Route::get('DAF/{daf}/work/approve/PR/{reference}',[DafController::class,'approvePR'])->name('DAFwork.approvePR');
+Route::get('DAF/{daf}/work/disapprove/PR/{reference}',[DafController::class,'disapprovePR'])->name('DAFwork.disapprovePR');
+
 //////
 //Asset managment and logistic coordinator
 Route::get('/AMLC/{amlc}',[AmlcController::class,'goAMLC'])->name('goAMLC');

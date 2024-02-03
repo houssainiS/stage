@@ -240,4 +240,36 @@ return redirect()->route('DAFrequest',['daf'=>$workerid])->with('success', 'Work
 
     }
 
+    public function approvePR($worker,$reference){
+        $user=Worker::where('id',$worker)->first();
+        $data=Pr::where('id',$reference)->first();
+        dd($data);
+        $data->DAF_approval="True";
+        $data->save();
+        $data->DAF_approval_date=$data->updated_at->format('Y-m-d H:i:s');
+        $data->save();
+            return to_route('DAFwork.approve',[$worker]);
+      
+    
+    }
+    public function disapprovePR($worker,$reference){
+        $user=Worker::where('id',$worker)->first();
+        $data=Pr::where('id',$reference)->first();
+        $data->DAF_approval="False";
+        $data->save();
+        $data->DAF_approval_date=$data->updated_at->format('Y-m-d H:i:s');
+        $data->save();
+            return to_route('DAFwork.approve',[$worker]);
+      
+    
+    }
+
+    public function approved($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data = Pr::where('PR_line_id',0)
+        ->get();
+            $requests_number=$data->count();
+        return view('DAFpage.approved',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number]);
+    }
+
 }

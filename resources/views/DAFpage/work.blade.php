@@ -31,7 +31,7 @@ margin-top:300px;
 
   <div class="button-container">
     <a href="{{route('DAFwork.approve',$worker)}}"><button class="button">Approve PR</button></a>
-    <a href=""><button class="button">PR approved</button></a>
+    <a href="{{route('DAFwork.approved',$worker)}}"><button class="button">PR approved</button></a>
   </div>
 
 @endsection
