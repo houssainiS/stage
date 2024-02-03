@@ -114,3 +114,5 @@ Route::get('/BOD/{bod}/SThistory',[BodController::class,'SThistory'])->name('BOD
 Route::get('/BOD/{bod}/history',[BodController::class,'history'])->name('BODHistory');
 Route::get('/BOD/{bod}/history/{request}',[BODController::class,'BODoneHistory'])->name('BODoneHistory.history');
 Route::get('/BOD/{bod}/work',[BodController::class,'work'])->name('BODwork');
+Route::get('/BOD/{bod}/work/PR/approve',[BodController::class,'PRapprove'])->name('BODwork.PRapprove');
+Route::get('/BOD/{bod}/work/PR/{PR_id}',[DafController::class,'onePr'])->name('BODwork.onePr');

@@ -354,12 +354,12 @@ if ($user) {
         $pr->division_name = request('division_name');
         $pr->cost_center = request('cost_center');
         $pr->direct_supervisor =request('direct_supervisor');
-        $pr->direct_supervisor_signature = request('direct_supervisor_signature');
+        $pr->direct_supervisor_signature = 'none';
         $pr->DH = request('DH');
         $pr->BOD1 = request('BOD1');
         $pr->BOD2 = request('BOD2');
-        $pr->BOD1_signature = request('BOD1_signature');
-        $pr->BOD2_signature = request('BOD2_signature');
+        $pr->BOD1_signature = 'none';
+        $pr->BOD2_signature = 'none';
         $pr->executive_director = request('executive_director');
         $pr->executive_director2 = request('executive_director2');
         $pr->approval_date = request('approval_date');

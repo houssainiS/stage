@@ -7,6 +7,7 @@ use App\Models\Worker;
 use App\Models\User;
 use App\Models\Itrequest;
 use App\Models\Strequest;
+use App\Models\Pr;
 class BodController extends Controller
 {
     public function goBOD($BOD){
@@ -225,5 +226,20 @@ return redirect()->route('BODrequest',['bod'=>$workerid])->with('success', 'Work
     public function work($worker){
         return view('BODpage.work',['worker'=>$worker]);
     }
+    public function PRapprove($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data = Pr::where('PR_line_id',0)->where('DAF_approval','True')
+        ->get();
+            $requests_number=$data->count();
+    //dd($data);
+        return view('BODpage.PRapprove',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
+    }
 
+    public function onePr($worker,$PR_id){
+        $user=Worker::where('id',$worker)->first();
+        $data=Pr::where('PR_id',$PR_id)->get();
+
+        return view ('BODpage.oneRequest',['worker'=> $worker,'PR_id'=>$PR_id,'user'=>$user,'data'=>$data]);
+
+    }
 }
