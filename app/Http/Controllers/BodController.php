@@ -222,4 +222,8 @@ return redirect()->route('BODrequest',['bod'=>$workerid])->with('success', 'Work
         'department'=>$department,'date'=>$now ,'order'=>$foundItem , "dep"=>$dep]) ;
     }
 
+    public function work($worker){
+        return view('BODpage.work',['worker'=>$worker]);
+    }
+
 }

@@ -113,3 +113,4 @@ Route::get('/BOD/{bod}/IThistory',[BodController::class,'IThistory'])->name('BOD
 Route::get('/BOD/{bod}/SThistory',[BodController::class,'SThistory'])->name('BODSThistory');
 Route::get('/BOD/{bod}/history',[BodController::class,'history'])->name('BODHistory');
 Route::get('/BOD/{bod}/history/{request}',[BODController::class,'BODoneHistory'])->name('BODoneHistory.history');
+Route::get('/BOD/{bod}/work',[BodController::class,'work'])->name('BODwork');
