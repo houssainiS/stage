@@ -30,20 +30,20 @@ return new class extends Migration
             $table->string('remarks4')->nullable();
             $table->binary('signature')->nullable(); //image signature
             $table->string('DH_approval')->default(false);
-            $table->date('DH_approval_date')->nullable();
+            $table->date('DH_approval_date')->format('Y-m-d H:i:s')->nullable();
             $table->string('AMLC_approval')->default(false);
-            $table->date('AMLC_approval_date')->nullable();
+            $table->date('AMLC_approval_date')->format('Y-m-d H:i:s')->nullable();
             $table->string('BOD1_approval')->default(false);
-            $table->date('BOD1_approval_date')->nullable();
+            $table->date('BOD1_approval_date')->format('Y-m-d H:i:s')->nullable();
             $table->string('AMLC2_approval')->default(false);
-            $table->date('AMLC2_approval_date')->nullable();
+            $table->date('AMLC2_approval_date')->format('Y-m-d H:i:s')->nullable();
             $table->string('AMLC_found')->default(false);
-            $table->date('AMLC_found_date')->nullable();
+            $table->date('AMLC_found_date')->format('Y-m-d H:i:s')->nullable();
             $table->string('price')->nullable();
             $table->string('BOD2_approval')->default(false);
-            $table->date('BOD2_approval_date')->nullable();
+            $table->date('BOD2_approval_date')->format('Y-m-d H:i:s')->nullable();
             $table->string('AMLC_bought')->default(false);
-            $table->date('AMLC_bought_date')->nullable();
+            $table->date('AMLC_bought_date')->format('Y-m-d H:i:s')->nullable();
             $table->timestamps();
         });
     }
