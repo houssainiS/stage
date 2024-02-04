@@ -1,9 +1,11 @@
 @extends('layouts.AMLCLayout')
 @section('title')AMLC @endsection
-@section('AMLCstPrSent')
+@section('AMLCPrApprovedContent')
 
 
-<h1 align="center" style="margin-top: 30px;">Purchase requisition sent</h1>
+
+
+<h1 align="center" style="margin-top: 30px;">Approved Stationery Requests</h1>
 <p>Number of requests: {{$requests_number}}</p>
 <table class="table mt-5">
 
@@ -12,7 +14,7 @@
       <th scope="col">Reference</th>
       <th scope="col">description</th>
       <th scope="col">Rrquest date</th>
-      <th scope="col">approval</th>
+      <th scope="col">Quotation</th>
     </tr>
   </thead>
   <tbody>
@@ -21,20 +23,26 @@
       <th scope="row">{{$item->PR_id}}</th>
       <td><a href="{{route('AMLCwork.onePr',[$worker,$item->PR_id])}}" class="">{{ substr($item->project_name, 0, 40) }}</a></td>
       <td>{{$item->created_at}}</td>
-      <td>
-    @if($item->BOD1_signature == 'True' && $item->BOD2_signature == 'True')
-      <p style="color:lime;">Approved</p>
-    @elseif($item->BOD1_signature == 'False' || $item->BOD2_signature == 'False')
-    <p style="color:red;">Disapproved</p>
-    @else
-    <p>Waiting for approval</p>
-    @endif
+
+<td>
+    <form method="post" action="{{route('AMLCwork.sendQstore',[$worker,$item->PR_id])}}" >
+        @csrf
+        @method('put')
+        <div class="input-group ">
+  <span class="input-group-text">DT</span>
+    <input style="width:200px" type="number" name="price" class="form-control">
+  <span class="input-group-text">.000</span>
+  <button type="submit" class="btn btn-primary ml-1">Send</button>
 </div>
+
+    </form>
+
 </td>
     </tr>
    @endforeach
   </tbody>
 </table>
+
 
 
 @endsection

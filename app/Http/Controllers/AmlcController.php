@@ -399,4 +399,58 @@ if ($user) {
         'bod1'=>$bod1,'bod2'=>$bod2]);
 
     }
+
+    public function approvedPR($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data = Pr::where('sentBy',$worker)->where('BOD2_signature','True')
+        ->get();
+            $requests_number=$data->count();
+    //dd($data1);
+        return view('AMLCpage.approvedPR',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
+       
+
+    }
+    public function sendQ($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data = Pr::where('sentBy',$worker)->where('BOD2_signature','True')->where('quotation',null)
+        ->get();
+            $requests_number=$data->count();
+    //dd($data1);
+        return view('AMLCpage.sendQuotation',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
+       
+
+    }
+    public function sendQstore($worker,$PR_id){
+        $data = Pr::where('PR_id',$PR_id)->get();
+
+        // Check if the model instance exists
+        if (!$data) {
+            // Handle the case when the model is not found
+            return redirect()->back()->with('error', 'Record not found.');
+        }
+
+        // Retrieve the 'price' input from the request
+        $price =request('price');
+        
+
+        $firstRecord = $data->first();
+        //dd($firstRecord);
+        // Update the 'quotation' column with the 'price' value
+        $firstRecord->quotation=$price;
+        $firstRecord->save();
+        // Redirect back with a success message
+        return redirect()->back()->with('success', 'Quotation updated successfully.');
+    
+    }
+
+    public function approvedQ($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data = Pr::where('sentBy',$worker)->where('BOD2_signature','True')->whereNotNull('quotation')
+        ->get();
+            $requests_number=$data->count();
+    //dd($data1);
+        return view('AMLCpage.quotationSent',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
+       
+
+    }
 }

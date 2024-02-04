@@ -99,6 +99,10 @@ Route::get('/AMLC/{amlc}/work/PR-sent',[AmlcController::class,'requestsPrSent'])
 Route::get('/AMLC/{amlc}/work/PR',[AmlcController::class,'PRform'])->name('AMLCwork.PRform');
 Route::post('/AMLC/{amlc}/work/PR/store',[AmlcController::class,'PRformStore'])->name('AMLCwork.PRformStore');
 Route::get('/AMLC/{amlc}/work/PR/{PR_id}',[AmlcController::class,'onePr'])->name('AMLCwork.onePr');
+Route::get('/AMLC/{amlc}/work/PR-sent/approved',[AmlcController::class,'approvedPR'])->name('AMLCwork.approvedPR');
+Route::get('/AMLC/{amlc}/work/PR-sent/approved/Quotation',[AmlcController::class,'sendQ'])->name('AMLCwork.sendQ');
+Route::put('/AMLC/{amlc}/work/PR-sent/approved/Quotation/store/{PR_id}',[AmlcController::class,'sendQstore'])->name('AMLCwork.sendQstore');
+Route::get('/AMLC/{amlc}/work/PR-sent/approved/Quotation/approved',[AmlcController::class,'approvedQ'])->name('AMLCwork.approvedQ');
 
 ////////
 //BOD

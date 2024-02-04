@@ -81,7 +81,10 @@
     <div class="midB">
         <a href="{{route('AMLCwork.PRform',$worker)}}" class="mid-button">Create Purchase requisition</a>
         <a href="{{route('AMLCwork.requestsPrSent',$worker)}}" class="mid-button">Purchases sent</a>
-        <a href="" class="mid-button">Approved PR</a>
+        <a href="{{route('AMLCwork.approvedPR',$worker)}}" class="mid-button">Approved PR</a>
+        <a href="{{route('AMLCwork.sendQ',$worker)}}" class="mid-button">Send quotation</a>
+        <a href="{{route('AMLCwork.approvedQ',$worker)}}" class="mid-button">Quotation sent</a>
+        <a href="" class="mid-button">Quotation approved</a>
 
     </div>
     
