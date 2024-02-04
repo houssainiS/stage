@@ -1,6 +1,6 @@
 @extends('layouts.AMLCLayout')
 @section('title')AMLC @endsection
-@section('AMLCPrApprovedContent')
+@section('AMLCApprovedQContent')
 
 
 

@@ -453,4 +453,15 @@ if ($user) {
        
 
     }
+
+    public function Qapproved($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data = Pr::where('sentBy',$worker)->where('BOD2_signature','True')->whereNotNull('quotation')->where('quotation_approval2','True')
+        ->get();
+            $requests_number=$data->count();
+    //dd($data1);
+        return view('AMLCpage.Qapproved',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
+       
+
+    }
 }

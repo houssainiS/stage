@@ -103,7 +103,7 @@ Route::get('/AMLC/{amlc}/work/PR-sent/approved',[AmlcController::class,'approved
 Route::get('/AMLC/{amlc}/work/PR-sent/approved/Quotation',[AmlcController::class,'sendQ'])->name('AMLCwork.sendQ');
 Route::put('/AMLC/{amlc}/work/PR-sent/approved/Quotation/store/{PR_id}',[AmlcController::class,'sendQstore'])->name('AMLCwork.sendQstore');
 Route::get('/AMLC/{amlc}/work/PR-sent/approved/Quotation/approved',[AmlcController::class,'approvedQ'])->name('AMLCwork.approvedQ');
-
+Route::get('/AMLC/{amlc}/work/PR-sent/approved/Quotation/justapproved',[AmlcController::class,'Qapproved'])->name('AMLCwork.Qapproved');
 ////////
 //BOD
 Route::get('/BOD/{bod}/work/approve/PR/Quotation/approved',[BODController::class,'approvedQuotation'])->name('BODwork.approvedQ');
