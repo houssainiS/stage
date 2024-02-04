@@ -72,8 +72,21 @@
         <td align ="center"> {{$user2->name}}</td>
         <td align ="center">anyone</td>
         <td align ="center">anyone</td>
-        <td align ="center">waiting</td>
-        <td align ="center">waiting</td>
+        <td align ="center">
+            @if(isset($data[0]->BOD1))
+            {{$bod1->name}}
+            @else
+            <p>Waiting</p>
+            @endif
+        </td>
+        <td align ="center">
+        @if(isset($data[0]->BOD2))
+            {{$bod2->name}}
+            @else
+            <p>Waiting</p>
+            @endif
+        </td>
+        </td>
     </tr>
     <tr style="background-color:#b4cfec;">
         <td>Position:
@@ -89,8 +102,22 @@
         <td align ="center"> Signed</td>
         <td align ="center">Signed</td>
         <td align ="center">Signed</td>
-        <td align ="center">waiting</td>
-        <td align ="center">waiting</td>
+        <td align ="center">
+        @if($data[0]->BOD1_signature== "True")
+        <p style="color:lime;">Approved</p>
+        @elseif($data[0]->BOD1_signature== "False")
+        <p style="color:red;">Disapproved</p>
+        @elseif($data[0]->BOD1_signature== "none")
+        <p >Waiting</p>
+        @endif</td>
+        <td align ="center">
+        @if($data[0]->BOD2_signature== "True")
+        <p style="color:lime;">Approved</p>
+        @elseif($data[0]->BOD2_signature== "False")
+        <p style="color:red;">Disapproved</p>
+        @elseif($data[0]->BOD2_signature== "none")
+        <p >Waiting</p>
+        @endif</td>
     </tr>
 </table>
 

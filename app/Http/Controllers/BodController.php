@@ -240,8 +240,12 @@ return redirect()->route('BODrequest',['bod'=>$workerid])->with('success', 'Work
         $data=Pr::where('PR_id',$PR_id)->get();
         //dd($data[0]->sentBy);
         $user2=Worker::where('id',$data[0]->sentBy)->first();
+        $bod1=Worker::where('id',$data[0]->BOD1)->first();
+        $bod2=Worker::where('id',$data[0]->BOD2)->first();
+        
 
-        return view ('BODpage.oneRequest',['worker'=> $worker,'PR_id'=>$PR_id,'user'=>$user,'data'=>$data,'user2'=>$user2]);
+        return view ('BODpage.oneRequest',['worker'=> $worker,'PR_id'=>$PR_id,'user'=>$user,'data'=>$data,'user2'=>$user2,
+    'bod1'=>$bod1,'bod2'=>$bod2]);
 
     }
 
@@ -280,7 +284,7 @@ return redirect()->route('BODrequest',['bod'=>$workerid])->with('success', 'Work
        // dd($data);
 
        if ($data->BOD1_signature === 'True' &&  $data->BOD1 != $worker) {
-        
+
         $data->BOD2_signature = 'False';
         $data->BOD2=$worker;
         $data->approval_date=$data->updated_at->format('Y-m-d H:i:s');

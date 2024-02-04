@@ -392,8 +392,11 @@ if ($user) {
         $user=Worker::where('id',$worker)->first();
         $data=Pr::where('PR_id',$PR_id)->get();
         //dd($data);
+        $bod1=Worker::where('id',$data[0]->BOD1)->first();
+        $bod2=Worker::where('id',$data[0]->BOD2)->first();
 
-        return view ('AMLCpage.onePR',['worker'=> $worker,'PR_id'=>$PR_id,'user'=>$user,'data'=>$data]);
+        return view ('AMLCpage.onePR',['worker'=> $worker,'PR_id'=>$PR_id,'user'=>$user,'data'=>$data,
+        'bod1'=>$bod1,'bod2'=>$bod2]);
 
     }
 }
