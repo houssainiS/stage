@@ -275,8 +275,8 @@ return redirect()->route('DAFrequest',['daf'=>$workerid])->with('success', 'Work
     public function onePr($worker,$PR_id){
         $user=Worker::where('id',$worker)->first();
         $data=Pr::where('PR_id',$PR_id)->get();
-
-        return view ('DAFpage.DAFoneRequest',['worker'=> $worker,'PR_id'=>$PR_id,'user'=>$user,'data'=>$data]);
+        $user2=Worker::where('id',$data[0]->sentBy)->first();
+        return view ('DAFpage.DAFoneRequest',['worker'=> $worker,'PR_id'=>$PR_id,'user'=>$user,'data'=>$data,'user2'=>$user2]);
 
     }
 

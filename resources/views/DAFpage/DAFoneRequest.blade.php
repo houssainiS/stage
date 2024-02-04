@@ -69,9 +69,9 @@
     <tr>
         <td>Name:
         </td>
-        <td align ="center"> {{$user->name}}</td>
-        <td align ="center">waiting</td>
-        <td align ="center">waiting</td>
+        <td align ="center"> {{$user2->name}}</td>
+        <td align ="center">anyone</td>
+        <td align ="center">anyone</td>
         <td align ="center">waiting</td>
         <td align ="center">waiting</td>
     </tr>
@@ -87,7 +87,7 @@
     <td>Signature:
         </td>
         <td align ="center"> Signed</td>
-        <td align ="center">waiting</td>
+        <td align ="center">signed</td>
         <td align ="center">signed</td>
         <td align ="center">waiting</td>
         <td align ="center">waiting</td>

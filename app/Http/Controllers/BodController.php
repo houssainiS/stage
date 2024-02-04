@@ -238,8 +238,10 @@ return redirect()->route('BODrequest',['bod'=>$workerid])->with('success', 'Work
     public function onePr($worker,$PR_id){
         $user=Worker::where('id',$worker)->first();
         $data=Pr::where('PR_id',$PR_id)->get();
+        //dd($data[0]->sentBy);
+        $user2=Worker::where('id',$data[0]->sentBy)->first();
 
-        return view ('BODpage.oneRequest',['worker'=> $worker,'PR_id'=>$PR_id,'user'=>$user,'data'=>$data]);
+        return view ('BODpage.oneRequest',['worker'=> $worker,'PR_id'=>$PR_id,'user'=>$user,'data'=>$data,'user2'=>$user2]);
 
     }
 }
