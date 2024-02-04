@@ -19,7 +19,7 @@
   </nav>
 </header>
 
-
+@yield('AMLCstapprovedContent')
 @yield('onePrContent')
 @yield('PRformContent')
 @yield('AMLCstPrSent')

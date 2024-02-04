@@ -464,4 +464,12 @@ if ($user) {
        
 
     }
+    public function AMLCSTapproved($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data = STrequest::whereNotNull('AMLC_approval')->where('AMLC_approval', '!=', 'none')
+        ->get();
+            $requests_number=$data->count();
+   // dd($data);
+        return view('AMLCpage.STapproved',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
+    }
 }

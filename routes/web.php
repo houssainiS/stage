@@ -104,6 +104,7 @@ Route::get('/AMLC/{amlc}/work/PR-sent/approved/Quotation',[AmlcController::class
 Route::put('/AMLC/{amlc}/work/PR-sent/approved/Quotation/store/{PR_id}',[AmlcController::class,'sendQstore'])->name('AMLCwork.sendQstore');
 Route::get('/AMLC/{amlc}/work/PR-sent/approved/Quotation/approved',[AmlcController::class,'approvedQ'])->name('AMLCwork.approvedQ');
 Route::get('/AMLC/{amlc}/work/PR-sent/approved/Quotation/justapproved',[AmlcController::class,'Qapproved'])->name('AMLCwork.Qapproved');
+Route::get('/AMLC/{amlc}/work/STrequests/approved-BY-amlc/',[AmlcController::class,'AMLCSTapproved'])->name('AMLCwork.AMLCSTapproved');
 ////////
 //BOD
 Route::get('/BOD/{bod}/work/approve/PR/Quotation/approved',[BODController::class,'approvedQuotation'])->name('BODwork.approvedQ');
