@@ -106,6 +106,7 @@ Route::get('/AMLC/{amlc}/work/PR-sent/approved/Quotation/approved',[AmlcControll
 
 ////////
 //BOD
+Route::get('/BOD/{bod}/work/approve/PR/Quotation/approved',[BODController::class,'approvedQuotation'])->name('BODwork.approvedQ');
 Route::get('/BOD/{bod}',[BodController::class,'goBOD'])->name('goBOD');
 Route::get('/BOD/{bod}/aboutme',[BodController::class,'aboutme'])->name('aboutmeBOD');
 Route::get('/BOD/{bod}/request',[BodController::class,'request'])->name('BODrequest');
@@ -123,3 +124,5 @@ Route::get('/BOD/{bod}/work/PR/{PR_id}',[BODController::class,'onePr'])->name('B
 Route::get('/BOD/{bod}/work/approve/PR/{reference}',[BODController::class,'approvePR'])->name('BODwork.approvePR');
 Route::get('/BOD/{bod}/work/disapprove/PR/{reference}',[BODController::class,'disapprovePR'])->name('BODwork.disapprovePR');
 Route::get('/BOD/{bod}/work/approved/PR/',[BODController::class,'approved'])->name('BODwork.approvedPR');
+Route::get('/BOD/{bod}/work/PR-sent/approved/Quotation/approve',[BODController::class,'approveQ'])->name('BODwork.approveQ');
+Route::get('/BOD/{bod}/work/approve/PR/Quotation/{reference}',[BODController::class,'approveQuotation'])->name('BODwork.approveQuotation');

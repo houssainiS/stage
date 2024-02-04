@@ -33,8 +33,10 @@ return new class extends Migration
             $table->string('quotation')->nullable();
             $table->string('quotation_approval1')->nullable();
             $table->string('quotation_approval2')->nullable();
+            $table->string('QBOD1')->nullable();
+            $table->string('QBOD2')->nullable();
             $table->date('quotation_approval1_date')->format('Y-m-d H:i:s')->nullable();
-            $table->date('Buotation_approval2_date')->format('Y-m-d H:i:s')->nullable();
+            $table->date('quotation_approval2_date')->format('Y-m-d H:i:s')->nullable();
             $table->date('approval_date')->format('Y-m-d H:i:s')->nullable();
             $table->string('description')->nullable();
             $table->integer('quantity')->nullable();

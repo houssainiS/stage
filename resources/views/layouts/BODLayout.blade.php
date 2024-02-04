@@ -19,6 +19,8 @@
   </nav>
 </header>
 
+@yield('BODApprovedQContent')
+@yield('BODPrQApproveContent')
 @yield('BODapprovedContent')
 @yield('BODoneRContent')
 @yield('BODapproveContent')

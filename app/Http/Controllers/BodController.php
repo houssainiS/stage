@@ -315,4 +315,49 @@ return redirect()->route('BODrequest',['bod'=>$workerid])->with('success', 'Work
             $requests_number=$data->count();
         return view('BODpage.PRapproved',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number]);
     }
+
+    public function approveQ($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data = Pr::where('BOD2_signature','True')->whereNotNull('quotation')//->where('quotation_approval1',null)
+        ->get();
+            
+            $requests_number=$data->count();
+            
+
+        return view('BODpage.quotationToApprove',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
+       
+
+    }
+    public function approveQuotation($worker,$reference){
+        $user=Worker::where('id',$worker)->first();
+        $data=Pr::where('PR_id',$reference)->first();
+       //dd($data);
+       if ($data->quotation_approval1 === 'True' &&  $data->QBOD1 != $worker) {
+        // Update BOD2_signature to 'True'
+        $data->quotation_approval2 = 'True';
+        $data->QBOD2=$worker;
+        $data->quotation_approval2_date=$data->updated_at->format('Y-m-d H:i:s');
+        $data->save();
+        return to_route('BODwork.approveQ',[$worker]);
+    }
+
+       else{
+        $data->quotation_approval1 = 'True';
+        $data->QBOD1=$worker;
+        $data->quotation_approval1_date=$data->updated_at->format('Y-m-d H:i:s');
+        $data->save();
+            return to_route('BODwork.approveQ',[$worker]);
+       
+       }
+}
+
+public function approvedQuotation($worker){
+    $user=Worker::where('id',$worker)->first();
+    $data = Pr::where('PR_line_id',0)->whereIn('quotation_approval1', ['True', 'False'])
+    ->get();
+    
+        $requests_number=$data->count();
+    //dd($data);
+    return view('BODpage.approvedQ',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number]);
+}
 }

@@ -41,8 +41,8 @@
 
 <div class="button-container button-container-second">
     <!-- New buttons -->
-    <a href="#"><button class="button">Approve PR Quotation</button></a>
-    <a href="#"><button class="button">PR Quotation approved</button></a>
+    <a href="{{route('BODwork.approveQ',$worker)}}"><button class="button">Approve PR Quotation</button></a>
+    <a href="{{route('BODwork.approvedQ',$worker)}}"><button class="button">PR Quotation approved</button></a>
 </div>
 
 @endsection
