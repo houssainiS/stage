@@ -60,7 +60,7 @@ nav li {
   padding: 0.5em;
 }
 .mid{
-  margin-right:500px;
+  margin-right:550px;
 }
 nav li a {
   text-decoration: none;

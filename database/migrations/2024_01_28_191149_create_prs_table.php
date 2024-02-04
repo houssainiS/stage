@@ -28,6 +28,9 @@ return new class extends Migration
             $table->string('BOD2')->nullable();
             $table->string('BOD1_signature')->nullable();
             $table->string('BOD2_signature')->nullable();
+            $table->string('quotation')->nullable();
+            $table->string('quotation_approval1')->nullable();
+            $table->string('quotation_approval2')->nullable();
             $table->string('executive_director')->nullable();
             $table->string('executive_director2')->nullable();
             $table->date('approval_date')->format('Y-m-d H:i:s')->nullable();

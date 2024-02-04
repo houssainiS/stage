@@ -115,4 +115,4 @@ Route::get('/BOD/{bod}/history',[BodController::class,'history'])->name('BODHist
 Route::get('/BOD/{bod}/history/{request}',[BODController::class,'BODoneHistory'])->name('BODoneHistory.history');
 Route::get('/BOD/{bod}/work',[BodController::class,'work'])->name('BODwork');
 Route::get('/BOD/{bod}/work/PR/approve',[BodController::class,'PRapprove'])->name('BODwork.PRapprove');
-Route::get('/BOD/{bod}/work/PR/{PR_id}',[DafController::class,'onePr'])->name('BODwork.onePr');
+Route::get('/BOD/{bod}/work/PR/{PR_id}',[BODController::class,'onePr'])->name('BODwork.onePr');

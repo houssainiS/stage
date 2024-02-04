@@ -88,7 +88,7 @@
         </td>
         <td align ="center"> Signed</td>
         <td align ="center">waiting</td>
-        <td align ="center">waiting</td>
+        <td align ="center">signed</td>
         <td align ="center">waiting</td>
         <td align ="center">waiting</td>
     </tr>

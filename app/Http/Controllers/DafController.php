@@ -231,7 +231,7 @@ return redirect()->route('DAFrequest',['daf'=>$workerid])->with('success', 'Work
     
     public function approve($worker){
         $user=Worker::where('id',$worker)->first();
-        $data = Pr::where('PR_line_id',0)
+        $data = Pr::where('PR_line_id',0)->where('DAF_approval','none')
         ->get();
             $requests_number=$data->count();
     //dd($data);
@@ -266,7 +266,7 @@ return redirect()->route('DAFrequest',['daf'=>$workerid])->with('success', 'Work
 
     public function approved($worker){
         $user=Worker::where('id',$worker)->first();
-        $data = Pr::where('PR_line_id',0)
+        $data = Pr::where('PR_line_id',0)->whereIn('DAF_approval', ['True', 'False'])
         ->get();
             $requests_number=$data->count();
         return view('DAFpage.approved',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number]);
