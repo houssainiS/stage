@@ -116,3 +116,6 @@ Route::get('/BOD/{bod}/history/{request}',[BODController::class,'BODoneHistory']
 Route::get('/BOD/{bod}/work',[BodController::class,'work'])->name('BODwork');
 Route::get('/BOD/{bod}/work/PR/approve',[BodController::class,'PRapprove'])->name('BODwork.PRapprove');
 Route::get('/BOD/{bod}/work/PR/{PR_id}',[BODController::class,'onePr'])->name('BODwork.onePr');
+Route::get('/BOD/{bod}/work/approve/PR/{reference}',[BODController::class,'approvePR'])->name('BODwork.approvePR');
+Route::get('/BOD/{bod}/work/disapprove/PR/{reference}',[BODController::class,'disapprovePR'])->name('BODwork.disapprovePR');
+Route::get('/BOD/{bod}/work/approved/PR/',[BODController::class,'approved'])->name('BODwork.approvedPR');

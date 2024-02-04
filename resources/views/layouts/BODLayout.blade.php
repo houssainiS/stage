@@ -19,6 +19,7 @@
   </nav>
 </header>
 
+@yield('BODapprovedContent')
 @yield('BODoneRContent')
 @yield('BODapproveContent')
 @yield('BODworkContent')

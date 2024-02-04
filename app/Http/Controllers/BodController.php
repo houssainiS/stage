@@ -228,7 +228,7 @@ return redirect()->route('BODrequest',['bod'=>$workerid])->with('success', 'Work
     }
     public function PRapprove($worker){
         $user=Worker::where('id',$worker)->first();
-        $data = Pr::where('PR_line_id',0)->where('DAF_approval','True')
+        $data = Pr::where('PR_line_id',0)->where('DAF_approval','True') //->where('BOD1_signature','none')
         ->get();
             $requests_number=$data->count();
     //dd($data);
@@ -243,5 +243,72 @@ return redirect()->route('BODrequest',['bod'=>$workerid])->with('success', 'Work
 
         return view ('BODpage.oneRequest',['worker'=> $worker,'PR_id'=>$PR_id,'user'=>$user,'data'=>$data,'user2'=>$user2]);
 
+    }
+
+    public function approvePR($worker,$reference){
+        $user=Worker::where('id',$worker)->first();
+        $data=Pr::where('id',$reference)->first();
+       // dd($data);
+       if ($data->BOD1_signature === 'True' &&  $data->BOD1 != $worker) {
+        // Update BOD2_signature to 'True'
+        $data->BOD2_signature = 'True';
+        $data->BOD2=$worker;
+        $data->approval_date=$data->updated_at->format('Y-m-d H:i:s');
+        $data->save();
+
+        // Update approval date with the current timestamp
+        $data->BOD2_approval_date = now()->format('Y-m-d H:i:s');
+        $data->save();
+        return to_route('BODwork.PRapprove',[$worker]);
+    }
+
+       else{
+        $data->BOD1_signature="True";
+        $data->BOD1=$worker;
+        $data->BOD1_approval_date=$data->updated_at->format('Y-m-d H:i:s');
+        $data->save();
+            return to_route('BODwork.PRapprove',[$worker]);
+       
+       }
+      
+    
+    }
+
+    public function disapprovePR($worker,$reference){
+        $user=Worker::where('id',$worker)->first();
+        $data=Pr::where('id',$reference)->first();
+       // dd($data);
+
+       if ($data->BOD1_signature === 'True' &&  $data->BOD1 != $worker) {
+        
+        $data->BOD2_signature = 'False';
+        $data->BOD2=$worker;
+        $data->approval_date=$data->updated_at->format('Y-m-d H:i:s');
+        $data->save();
+
+        // Update approval date with the current timestamp
+        $data->BOD2_approval_date = now()->format('Y-m-d H:i:s');
+        $data->save();
+        return to_route('BODwork.PRapprove',[$worker]);
+    }
+
+       else{
+        $data->BOD1_signature="False";
+        $data->save();
+        $data->approval_date=$data->updated_at->format('Y-m-d H:i:s');
+        $data->save();
+            return to_route('BODwork.PRapprove',[$worker]);
+       }
+        
+      
+    
+    }
+
+    public function approved($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data = Pr::where('PR_line_id',0)->whereIn('BOD1_signature', ['True', 'False'])
+        ->get();
+            $requests_number=$data->count();
+        return view('BODpage.PRapproved',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number]);
     }
 }

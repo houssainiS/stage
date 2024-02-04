@@ -360,8 +360,6 @@ if ($user) {
         $pr->BOD2 = request('BOD2');
         $pr->BOD1_signature = 'none';
         $pr->BOD2_signature = 'none';
-        $pr->executive_director = request('executive_director');
-        $pr->executive_director2 = request('executive_director2');
         $pr->approval_date = request('approval_date');
         $pr->explanation = request('explanation');
         $pr->DAF_approval = 'none';

@@ -36,7 +36,7 @@
 
 <div class="button-container button-container-first">
     <a href="{{route('BODwork.PRapprove',$worker)}}"><button class="button">Approve PR</button></a>
-    <a href="#"><button class="button">PR approved</button></a>
+    <a href="{{route('BODwork.approvedPR',$worker)}}"><button class="button">PR approved</button></a>
 </div>
 
 <div class="button-container button-container-second">

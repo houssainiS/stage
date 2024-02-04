@@ -87,7 +87,7 @@
     <td>Signature:
         </td>
         <td align ="center"> Signed</td>
-        <td align ="center">waiting</td>
+        <td align ="center">Signed</td>
         <td align ="center">Signed</td>
         <td align ="center">waiting</td>
         <td align ="center">waiting</td>
