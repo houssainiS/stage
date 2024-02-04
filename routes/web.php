@@ -126,3 +126,4 @@ Route::get('/BOD/{bod}/work/disapprove/PR/{reference}',[BODController::class,'di
 Route::get('/BOD/{bod}/work/approved/PR/',[BODController::class,'approved'])->name('BODwork.approvedPR');
 Route::get('/BOD/{bod}/work/PR-sent/approved/Quotation/approve',[BODController::class,'approveQ'])->name('BODwork.approveQ');
 Route::get('/BOD/{bod}/work/approve/PR/Quotation/{reference}',[BODController::class,'approveQuotation'])->name('BODwork.approveQuotation');
+Route::get('/BOD/{bod}/work/approve/PR/Quotation/disapprove/{reference}',[BODController::class,'disapproveQuotation'])->name('BODwork.disapproveQuotation');

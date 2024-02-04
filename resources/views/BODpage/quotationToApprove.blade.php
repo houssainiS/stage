@@ -32,7 +32,7 @@
 </td>
 <td>
 <a href="{{route('BODwork.approveQuotation',[$worker,$item->PR_id])}}"><button type="button" class="btn btn-success">Approve</button></a>
-      <a href=""><button type="button" class="btn btn-danger">Disapprove</button></a>
+      <a href="{{route('BODwork.disapproveQuotation',[$worker,$item->PR_id])}}"><button type="button" class="btn btn-danger">Disapprove</button></a>
 </td>
     </tr>
     @elseif($item->quotation_approval1 == 'True' && $item->quotation_approval2==null && $item->QBOD1 != $worker)
@@ -47,7 +47,7 @@
 </td>
 <td>
 <a href="{{route('BODwork.approveQuotation',[$worker,$item->PR_id])}}"><button type="button" class="btn btn-success">Approve</button></a>
-      <a href=""><button type="button" class="btn btn-danger">Disapprove</button></a>
+<a href="{{route('BODwork.disapproveQuotation',[$worker,$item->PR_id])}}"><button type="button" class="btn btn-danger">Disapprove</button></a>
 </td>
     </tr>
     @endif
