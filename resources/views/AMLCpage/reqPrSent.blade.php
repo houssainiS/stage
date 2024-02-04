@@ -22,7 +22,13 @@
       <td><a href="{{route('AMLCwork.onePr',[$worker,$item->PR_id])}}" class="">{{ substr($item->project_name, 0, 40) }}</a></td>
       <td>{{$item->created_at}}</td>
       <td>
-    <p>Waiting</p>
+    @if($item->BOD1_signature == 'True' && $item->BOD2_signature == 'True')
+      <p style="color:lime;">Approved</p>
+    @elseif($item->BOD1_signature == 'False' || $item->BOD2_signature == 'False')
+    <p style="color:red;">Disapproved</p>
+    @else
+    <p>Waiting for approval</p>
+    @endif
 </div>
 </td>
     </tr>
