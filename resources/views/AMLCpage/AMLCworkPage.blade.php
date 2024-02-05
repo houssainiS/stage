@@ -74,8 +74,8 @@
         <a href="{{route('AMLCwork.STrequests',$worker)}}" class="button">requests</a>
         <a href="{{route('AMLCwork.STrequestsFoundInStock',$worker)}}" class="button">requests found in the stock</a>
         <a href="{{route('AMLCwork.AMLCSTapproved',$worker)}}" class="button">Approved requests</a>
-        <a href="#" class="button">Confirm Purchase</a>
-        <a href="#" class="button">Requests bought</a>
+        <a href="{{route('AMLCwork.AMLCSTconfirm',$worker)}}" class="button">Confirm Purchase</a>
+        <a href="{{route('AMLCwork.AMLCSTconfirmed',$worker)}}" class="button">Requests bought</a>
     </div>
     <div class="midB">
         <a href="{{route('AMLCwork.PRform',$worker)}}" class="mid-button">Create Purchase requisition</a>

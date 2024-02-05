@@ -105,6 +105,9 @@ Route::put('/AMLC/{amlc}/work/PR-sent/approved/Quotation/store/{PR_id}',[AmlcCon
 Route::get('/AMLC/{amlc}/work/PR-sent/approved/Quotation/approved',[AmlcController::class,'approvedQ'])->name('AMLCwork.approvedQ');
 Route::get('/AMLC/{amlc}/work/PR-sent/approved/Quotation/justapproved',[AmlcController::class,'Qapproved'])->name('AMLCwork.Qapproved');
 Route::get('/AMLC/{amlc}/work/STrequests/approved-BY-amlc/',[AmlcController::class,'AMLCSTapproved'])->name('AMLCwork.AMLCSTapproved');
+Route::get('/AMLC/{amlc}/work/STrequests/approved-BY-amlc/confirm-purchase',[AmlcController::class,'AMLCSTconfirm'])->name('AMLCwork.AMLCSTconfirm');
+Route::get('/AMLC/{amlc}/work/STrequests/approved-BY-amlc/confirm-purchase/bought/{reference}',[AmlcController::class,'AMLCSTbought'])->name('AMLCwork.AMLCSTbought');
+Route::get('/AMLC/{amlc}/work/STrequests/approved-BY-amlc/confirmed-purchase',[AmlcController::class,'AMLCSTconfirmed'])->name('AMLCwork.AMLCSTconfirmed');
 ////////
 //BOD
 Route::get('/BOD/{bod}/work/approve/PR/Quotation/approved',[BODController::class,'approvedQuotation'])->name('BODwork.approvedQ');

@@ -472,4 +472,33 @@ if ($user) {
    // dd($data);
         return view('AMLCpage.STapproved',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
     }
+
+    public function AMLCSTconfirm($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data = STrequest::where('AMLC_approval','True')->where('AMLC_bought','none')
+        ->get();
+            $requests_number=$data->count();
+   // dd($data);
+        return view('AMLCpage.confirmPurchase',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
+    }
+
+    public function AMLCSTbought($worker,$reference){
+        $user=Worker::where('id',$worker)->first();
+        $order = STrequest::where('reference',$reference)->first();
+        $order->AMLC_bought='True';
+        $order->AMLC_bought_date=now()->format('Y-m-d H:i:s');
+        $order->save();
+        $data = STrequest::where('AMLC_approval','True')->where('AMLC_bought','none')
+        ->get();
+            $requests_number=$data->count();
+        return view('AMLCpage.confirmPurchase',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
+    }
+
+    public function AMLCSTconfirmed($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data = STrequest::where('AMLC_approval','True')->where('AMLC_bought','True')
+        ->get();
+            $requests_number=$data->count();
+        return view('AMLCpage.boughtSTrequest',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
+    }
 }
