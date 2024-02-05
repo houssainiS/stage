@@ -18,6 +18,12 @@
     </ul>
   </nav>
 </header>
+
+@yield('AMLCitboughtContent')
+@yield('AMLCitConfirmedContent')
+@yield('AMLCitapprovedContent')
+@yield('AMLCitReqfoundInStockContent')
+@yield('AMLCITReqToApproveContent')
 @yield('AMLCstboughtContent')
 @yield('AMLCstapprovedContent')
 @yield('onePrContent')

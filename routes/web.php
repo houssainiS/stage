@@ -108,6 +108,17 @@ Route::get('/AMLC/{amlc}/work/STrequests/approved-BY-amlc/',[AmlcController::cla
 Route::get('/AMLC/{amlc}/work/STrequests/approved-BY-amlc/confirm-purchase',[AmlcController::class,'AMLCSTconfirm'])->name('AMLCwork.AMLCSTconfirm');
 Route::get('/AMLC/{amlc}/work/STrequests/approved-BY-amlc/confirm-purchase/bought/{reference}',[AmlcController::class,'AMLCSTbought'])->name('AMLCwork.AMLCSTbought');
 Route::get('/AMLC/{amlc}/work/STrequests/approved-BY-amlc/confirmed-purchase',[AmlcController::class,'AMLCSTconfirmed'])->name('AMLCwork.AMLCSTconfirmed');
+Route::get('/AMLC/{amlc}/work/ITrequests',[AmlcController::class,'ITrequestsToApprove'])->name('AMLCwork.ITrequests');
+Route::get('/AMLC/{amlc}/work/ITrequests/approve/{reference}',[AmlcController::class,'AMLCITapprove'])->name('AMLCwork.ITapprove');
+Route::get('/AMLC/{amlc}/work/ITrequests/disapprove/{reference}',[AmlcController::class,'AMLCITdisapprove'])->name('AMLCwork.ITdisapprove');
+Route::get('/AMLC/{amlc}/work/ITrequests/found/{reference}',[AmlcController::class,'AMLCITfound'])->name('AMLCwork.ITfound');
+Route::get('/AMLC/{amlc}/work/IT/found-in-the-stock',[AmlcController::class,'ITrequestsFoundInStock'])->name('AMLCwork.ITrequestsFoundInStock');
+Route::get('/AMLC/{amlc}/work/ITrequests/approved-BY-amlc/',[AmlcController::class,'AMLCITapproved'])->name('AMLCwork.AMLCITapproved');
+Route::get('/AMLC/{amlc}/work/ITrequests/approved-BY-amlc/confirm-purchase',[AmlcController::class,'AMLCITconfirm'])->name('AMLCwork.AMLCITconfirm');
+Route::get('/AMLC/{amlc}/work/ITrequests/approved-BY-amlc/confirm-purchase/bought/{reference}',[AmlcController::class,'AMLCITbought'])->name('AMLCwork.AMLCITbought');
+Route::get('/AMLC/{amlc}/work/ITrequests/approved-BY-amlc/confirmed-purchase',[AmlcController::class,'AMLCITconfirmed'])->name('AMLCwork.AMLCITconfirmed');
+
+
 ////////
 //BOD
 Route::get('/BOD/{bod}/work/approve/PR/Quotation/approved',[BODController::class,'approvedQuotation'])->name('BODwork.approvedQ');

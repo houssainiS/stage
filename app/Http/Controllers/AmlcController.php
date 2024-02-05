@@ -501,4 +501,101 @@ if ($user) {
             $requests_number=$data->count();
         return view('AMLCpage.boughtSTrequest',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
     }
+
+    public function ITrequestsToApprove($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data = ITrequest::where('AMLC_approval', 'none')
+        ->where('DH_approval', 'True')
+        ->where('AMLC_found','none')
+        ->get();
+            $requests_number=$data->count();
+    //dd($data);
+        return view('AMLCpage.ITreqToApprove',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
+       
+
+    }
+///
+    public function AMLCITapprove($worker,$reference){
+        //$user=Worker::where('id',$worker)->first();
+        $data=ITrequest::where('reference',$reference)->first();
+        $data->AMLC_approval="True";
+        $data->save();
+        $data->AMLC_approval_date=$data->updated_at->format('Y-m-d H:i:s');
+        $data->save();
+            return to_route('AMLCwork.ITrequests',[$worker]);
+      
+      
+    }
+    public function AMLCITdisapprove($worker,$reference){
+        //$user=Worker::where('id',$worker)->first();
+        $data=ITrequest::where('reference',$reference)->first();
+        $data->AMLC_approval="False";
+        $data->save();
+        $data->AMLC_approval_date=$data->updated_at->format('Y-m-d H:i:s');
+        $data->save();
+            return to_route('AMLCwork.ITrequests',[$worker]);
+      
+      
+    }
+    public function AMLCITfound($worker,$reference){
+        //$user=Worker::where('id',$worker)->first();
+        $data=ITrequest::where('reference',$reference)->first();
+        $data->AMLC_found="True";
+        $data->save();
+        $data->AMLC_found_date=$data->updated_at->format('Y-m-d H:i:s');
+        $data->save();
+            return to_route('AMLCwork.ITrequests',[$worker]);
+      
+      
+    }
+
+    public function ITrequestsFoundInStock($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data = ITrequest::where('AMLC_found','True')
+        ->get();
+            $requests_number=$data->count();
+    //dd($data1);
+        return view('AMLCpage.ITreqFoundInStock',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
+       
+
+    }
+
+    public function AMLCITapproved($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data = ITrequest::whereNotNull('AMLC_approval')->where('AMLC_approval', '!=', 'none')
+        ->get();
+            $requests_number=$data->count();
+   // dd($data);
+        return view('AMLCpage.ITapproved',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
+    }
+
+    public function AMLCITconfirm($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data = ITrequest::where('AMLC_approval','True')->where('AMLC_bought', '!=', 'True')
+        ->get();
+            $requests_number=$data->count();
+   // dd($data);
+        return view('AMLCpage.ITconfirmPurchase',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
+    }
+
+    public function AMLCITbought($worker,$reference){
+        $user=Worker::where('id',$worker)->first();
+        $order = ITrequest::where('reference',$reference)->first();
+        $order->AMLC_bought='True';
+        $order->AMLC_bought_date=now()->format('Y-m-d H:i:s');
+        $order->save();
+        $data = ITrequest::where('AMLC_approval','True')->where('AMLC_bought', '!=', 'True')
+        ->get();
+            $requests_number=$data->count();
+        return view('AMLCpage.ITconfirmPurchase',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
+    }
+
+    public function AMLCITconfirmed($worker){
+        $user=Worker::where('id',$worker)->first();
+        $data = ITrequest::where('AMLC_approval','True')->where('AMLC_bought','True')
+        ->get();
+            $requests_number=$data->count();
+        return view('AMLCpage.boughtITrequest',['worker'=>$worker,'data'=>$data,'requests_number'=>$requests_number,]);
+    }
+
 }

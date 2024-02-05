@@ -1,9 +1,9 @@
 @extends('layouts.AMLCLayout')
 @section('title')AMLC @endsection
-@section('AMLCstboughtContent')
+@section('AMLCitConfirmedContent')
 
 
-<h1 align="center" style="margin-top: 30px;">Confirm ST requests purchase</h1>
+<h1 align="center" style="margin-top: 30px;">IT Confirm requests purchase</h1>
 <p>Number of requests: {{$requests_number}}</p>
 <table class="table mt-5">
 
@@ -16,7 +16,6 @@
       <th scope="col">DH approval date</th>
       <th scope="col">Approval</th>
       <th scope="col">Confirm</th>
-      <th scope="col">Buying Date</th>
     </tr>
   </thead>
   <tbody>
@@ -35,9 +34,12 @@
         <p style="color:red">Dispproved</p>
         @endif
     </p>
+</div>
 </td>
-<td>Bought</td>
-<td>{{$item->AMLC_bought_date}}</td>
+<td>
+    <a href="{{route('AMLCwork.AMLCITbought',[$worker,$item->reference])}}"><button type="button" class="btn btn-success">Bought</button></a>
+    
+</td>
     </tr>
    @endforeach
   </tbody>

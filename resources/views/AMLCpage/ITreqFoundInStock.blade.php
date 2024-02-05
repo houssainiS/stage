@@ -1,9 +1,9 @@
 @extends('layouts.AMLCLayout')
 @section('title')AMLC @endsection
-@section('AMLCstboughtContent')
+@section('AMLCitReqfoundInStockContent')
 
 
-<h1 align="center" style="margin-top: 30px;">Confirm ST requests purchase</h1>
+<h1 align="center" style="margin-top: 30px;">IT Requests waiting for approval</h1>
 <p>Number of requests: {{$requests_number}}</p>
 <table class="table mt-5">
 
@@ -14,9 +14,7 @@
       <th scope="col">type</th>
       <th scope="col">Rrquest date</th>
       <th scope="col">DH approval date</th>
-      <th scope="col">Approval</th>
-      <th scope="col">Confirm</th>
-      <th scope="col">Buying Date</th>
+      <th scope="col">approval</th>
     </tr>
   </thead>
   <tbody>
@@ -28,16 +26,9 @@
       <td>{{$item->created_at}}</td>
       <td>{{$item->DH_approval_date}}</td>
       <td>
-    <p>
-        @if($item->AMLC_approval=='True')
-        <p style="color:lime">Approved</p>
-        @else
-        <p style="color:red">Dispproved</p>
-        @endif
-    </p>
+    <p>Found in Stock !</p>
+</div>
 </td>
-<td>Bought</td>
-<td>{{$item->AMLC_bought_date}}</td>
     </tr>
    @endforeach
   </tbody>

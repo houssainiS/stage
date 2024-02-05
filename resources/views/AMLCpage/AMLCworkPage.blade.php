@@ -63,10 +63,11 @@
 
     <div class="left-container">
         <h3 align ="center">IT</h3>
-        <a href="#" class="button">Approved from BOD</a>
-        <a href="#" class="button">Searched for suppliers</a>
-        <a href="#" class="button">sent to BOD</a>
-        <a href="#" class="button">Confirm the order</a>
+        <a href="{{route('AMLCwork.ITrequests',$worker)}}" class="button">requests</a>
+        <a href="{{route('AMLCwork.ITrequestsFoundInStock',$worker)}}" class="button">requests found in the stock</a>
+        <a href="{{route('AMLCwork.AMLCITapproved',$worker)}}" class="button">Approved requests</a>
+        <a href="{{route('AMLCwork.AMLCITconfirm',$worker)}}" class="button">Confirm Purchase</a>
+        <a href="{{route('AMLCwork.AMLCITconfirmed',$worker)}}" class="button">Requests bought</a>
     </div>
 
     <div class="right-container">

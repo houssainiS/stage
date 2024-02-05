@@ -1,9 +1,9 @@
 @extends('layouts.AMLCLayout')
 @section('title')AMLC @endsection
-@section('AMLCstboughtContent')
+@section('AMLCitboughtContent')
 
 
-<h1 align="center" style="margin-top: 30px;">Confirm ST requests purchase</h1>
+<h1 align="center" style="margin-top: 30px;">Confirm IT requests purchase</h1>
 <p>Number of requests: {{$requests_number}}</p>
 <table class="table mt-5">
 
