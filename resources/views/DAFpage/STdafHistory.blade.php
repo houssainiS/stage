@@ -15,7 +15,7 @@
       <th scope="col">description</th>
       <th scope="col">type</th>
       <th scope="col">date</th>
-      <th scope="col">dh approval</th>
+      <th scope="col">DH approval</th>
       <th scope="col">Finished or not</th>
       <th scope="col">Duration</th>
     </tr>
